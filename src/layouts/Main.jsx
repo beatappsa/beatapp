@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 import Head from "next/head";
 import Script from 'next/script';
 //= Components
-import PreLoader from "@components/PreLoader";
 import ScrollToTop from "@components/ScrollToTop";
 //= Scripts
 import fixStylesheetsOrder from "@common/fixStylesheetsOrder";
@@ -31,7 +30,6 @@ const MainLayout = ({ children, scrollTopText, isRTL }) => {
         }
       </Head>
 
-      <PreLoader />
       { children }
       <ScrollToTop topText={scrollTopText} />
     </>

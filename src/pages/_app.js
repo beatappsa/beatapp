@@ -2,7 +2,6 @@ import React from "react";
 import Script from "next/script";
 import Head from "next/head";
 import { appWithTranslation } from 'next-i18next';
-import "../styles/preloader.css";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
@@ -15,7 +14,6 @@ function MyApp({ Component, pageProps }) {
 
       <Component {...pageProps} />
 
-      <Script strategy="beforeInteractive" src="/assets/js/lib/pace.js"></Script>
       <Script strategy="beforeInteractive" src="/assets/js/lib/bootstrap.bundle.min.js"></Script>
       <Script strategy="beforeInteractive" src="/assets/js/lib/mixitup.min.js"></Script>
       <Script strategy="beforeInteractive" src="/assets/js/lib/wow.min.js"></Script>

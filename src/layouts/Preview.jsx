@@ -5,7 +5,6 @@ import Script from "next/script";
 //= Scripts
 import navbarScrollEffect from "@common/navbarScrollEffect";
 //= Components
-import PreLoader from "@components/PreLoader";
 import ScrollToTop from "@components/ScrollToTop";
 import Navbar from '@components/Navbars/PreviewNav';
 
@@ -27,7 +26,6 @@ const PreviewLayout = ({ children }) => {
         <link rel="stylesheet" href="/landing-preview/css/preview-style.css" />
       </Head>
 
-      <PreLoader />
       <Navbar navbarRef={navbarRef} />
       <main>
         {children}
