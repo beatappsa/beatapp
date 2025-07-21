@@ -3,32 +3,54 @@
     "id": "01",
     "image": "/assets/img/icons/fe1.png",
     "title": {
-      "part1": "Powerful Security",
-      "part2": "System Built"
-    }
+      "part1": "Smart WhatsApp",
+      "part2": "Auto Response"
+    },
+    "description": "Bot that responds for you, collects customer data, and follows up automatically"
   },
   {
-    "id": "02",
+    "id": "02", 
     "image": "/assets/img/icons/fe2.png",
     "title": {
-      "part1": "Easy Search Engine",
-      "part2": "Optimize"
-    }
+      "part1": "Automatic Emails",
+      "part2": "Per Client"
+    },
+    "description": "Messages sent automatically according to what suits each client"
   },
   {
     "id": "03",
-    "image": "/assets/img/icons/fe3.png",
+    "image": "/assets/img/icons/fe3.png", 
     "title": {
-      "part1": "Uncommon Layout",
-      "part2": "& Creative"
-    }
+      "part1": "Smart Sequence",
+      "part2": "Per Client"
+    },
+    "description": "Each client follows their own funnel or path until conversion"
   },
   {
     "id": "04",
     "image": "/assets/img/icons/fe4.png",
     "title": {
-      "part1": "Save Time & Big",
-      "part2": "Data"
-    }
+      "part1": "Landing Pages",
+      "part2": "Smart Conversion"
+    },
+    "description": "Convert visitors to clients without feeling like they're in a sales process"
+  },
+  {
+    "id": "05",
+    "image": "/assets/img/icons/fe1.png",
+    "title": {
+      "part1": "Automatic CRM",
+      "part2": "Client Management"
+    },
+    "description": "Every interaction gets registered with name, status, and follow-up"
+  },
+  {
+    "id": "06",
+    "image": "/assets/img/icons/fe2.png",
+    "title": {
+      "part1": "Alerts & Tasks",
+      "part2": "Ready Clients"
+    },
+    "description": "You only get notified when the client is ready to buy"
   }
 ]
