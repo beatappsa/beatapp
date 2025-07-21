@@ -7,7 +7,7 @@ import navbarScrollEffect from "@common/navbarScrollEffect";
 //= Layout
 import MainLayout from '@layouts/Main';
 //= Components
-import TopNav from '@components/Navbars/TopNav';
+import BlogTopNav from '@components/Navbars/BlogTopNav';
 import Navbar from '@components/Navbars/SaasNav';
 import BlogSlider from '@components/Blog/BlogSlider';
 import PopularPosts from '@components/Blog/PopularPosts';
@@ -26,12 +26,12 @@ const PageBlog5 = () => {
     <>
       <Head>
         <title>{t('blog.title')} 5 - BeatApp</title>
-        <meta name="description" content="BeatApp Blog - Latest insights on marketing automation, digital marketing, and business growth." />
-        <meta name="keywords" content="blog, marketing, automation, digital marketing, business growth, BeatApp" />
+        <meta name="description" content={t('blog.meta_description')} />
+        <meta name="keywords" content={t('blog.meta_keywords')} />
       </Head>
 
       <MainLayout>
-        <TopNav style="5" />
+        <BlogTopNav style="7" />
         <Navbar navbarRef={navbarRef} />
         <main className="blog-page style-5 color-5">
           <BlogSlider style="5" />

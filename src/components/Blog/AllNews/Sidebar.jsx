@@ -1,17 +1,27 @@
 import { useEffect, useState, useCallback } from 'react';
+import { useRouter } from 'next/router';
+import { useTranslation } from 'next-i18next';
 import Link from 'next/link';
 
 const Sidebar = ({ style, rtl }) => {
+  const router = useRouter();
+  const { t } = useTranslation('common');
   const [recentPosts, setRecentPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // Get current language
+  const currentLanguage = router.locale || 'ar';
+
   // Function to extract text from HTML and limit length
   const extractTextFromHTML = (html, maxLength = 60) => {
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = html;
-    const text = tempDiv.textContent || tempDiv.innerText || '';
-    return text.length > maxLength ? text.substring(0, maxLength) : text;
+    if (typeof window !== 'undefined') {
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = html;
+      const text = tempDiv.textContent || tempDiv.innerText || '';
+      return text.length > maxLength ? text.substring(0, maxLength) : text;
+    }
+    return 'Loading content...';
   };
 
   // Function to fetch latest 3 WordPress posts for recent posts section
@@ -21,7 +31,7 @@ const Sidebar = ({ style, rtl }) => {
       setError(null);
 
       // Fetch latest 3 posts with embedded media for featured images
-      const response = await fetch('/api/wordpress/posts?per_page=3&orderby=date&order=desc');
+      const response = await fetch(`/api/wordpress/posts?per_page=3&orderby=date&order=desc&lang=${currentLanguage}`);
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -43,7 +53,8 @@ const Sidebar = ({ style, rtl }) => {
           image: featuredImageUrl,
           title: post.title.rendered,
           excerpt: extractTextFromHTML(post.excerpt.rendered || post.content.rendered),
-          link: `/page-single-post-5?id=${post.id}`
+          link: `/page-single-post-5?id=${post.id}`,
+          language: currentLanguage
         };
       });
 
@@ -51,116 +62,99 @@ const Sidebar = ({ style, rtl }) => {
     } catch (err) {
       console.error('Error fetching recent posts:', err);
       setError(err.message);
-      // Set fallback data in case of error
-      setRecentPosts([
+      // Set fallback data with language support
+      const fallbackPosts = currentLanguage === 'ar' ? [
         {
           id: 1,
-          image: "/assets/img/blog/1.jpeg",
-          title: "Solutions For Big Data Issue",
-          excerpt: "If there's one way that wireless technology has",
-          link: "/page-single-post-5"
-        },
-        {
-          id: 2,
-          image: "/assets/img/blog/2.jpeg", 
-          title: "AI With Fingerprint Technology",
-          excerpt: "If there's one way that wireless technology has",
-          link: "/page-single-post-5"
-        },
-        {
-          id: 3,
-          image: "/assets/img/blog/3.jpeg",
-          title: "NFT Game! New Opportunity",
-          excerpt: "If there's one way that wireless technology has",
+          image: "/assets/img/blog/s_blog.png",
+          title: "مقال تجريبي 01",
+          excerpt: "وصف المقال التجريبي الأول...",
           link: "/page-single-post-5"
         }
-      ]);
+      ] : [
+        {
+          id: 1,
+          image: "/assets/img/blog/s_blog.png", 
+          title: "Sample Article 01",
+          excerpt: "Sample article description...",
+          link: "/page-single-post-5"
+        }
+      ];
+      setRecentPosts(fallbackPosts);
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [currentLanguage]); // Add currentLanguage to dependencies
 
   // Fetch recent posts on component mount
   useEffect(() => {
     fetchRecentPosts();
-  }, []);
+  }, [fetchRecentPosts]); // Add fetchRecentPosts to dependencies
 
   return (
     <div className="col-lg-4">
-      <div className="side-blog style-5 ps-lg-5 mt-5 mt-lg-0">
-        {/* Search Form */}
-        <form action="contact.php" className="search-form mb-50" method="post">
-          <h6 className="title mb-20 text-uppercase fw-normal">
-            { rtl ? 'بحث' : 'search' }
-          </h6>
-          <div className="form-group position-relative">
-            <input type="text" className="form-control rounded-pill" placeholder={ rtl ? "اكتب وارسل" : "Type and hit enter" } />
-            <button className="search-btn border-0 bg-transparent"> <i className="fas fa-search"></i> </button>
-          </div>
-        </form>
-
-        {/* Recent Posts */}
-        <div className="side-recent-post mb-50">
-          <h6 className="title mb-20 text-uppercase fw-normal">
-            { rtl ? 'المنشورات الاخيرة' : 'recent post' }
-          </h6>
-          
-          {loading ? (
-            <div className="text-center py-3">
-              <div className="spinner-border spinner-border-sm text-primary" role="status">
-                <span className="visually-hidden">Loading...</span>
+      <div className="blog-sidebar">
+        <div className="sidebar-search mb-40">
+          <form className="form-subscribe" onSubmit={(e) => e.preventDefault()}>
+            <div className="row">
+              <div className="col-12">
+                <div className="form-group position-relative">
+                  <input type="text" className="form-control border-0" placeholder={t('blog.search')} />
+                  <button className="btn-search border-0 bg-transparent position-absolute">
+                    <i className="fas fa-search"></i>
+                  </button>
+                </div>
               </div>
-              <p className="small mt-2">Loading recent posts...</p>
             </div>
-          ) : error ? (
-            <div className="alert alert-warning small">
-              <p>Unable to load recent posts.</p>
-            </div>
-          ) : (
-            recentPosts.map((post, index) => (
-              <Link href={post.link} key={post.id || index}>
-                <a className={`post-card ${index !== recentPosts.length - 1 ? 'pb-3 mb-3 border-bottom brd-gray':''}`}>
-                  <div className="img me-3">
-                    <img 
-                      src={post.image} 
-                      alt={post.title}
-                      onError={(e) => {
-                        // Fallback image if the WordPress image fails to load
-                        e.target.src = '/assets/img/blog/s_blog.png';
-                      }}
-                    />
-                  </div>
-                  <div className="inf">
-                    <h6 dangerouslySetInnerHTML={{ __html: post.title }}></h6>
-                    <p>{ post.excerpt } [...]</p>
-                  </div>
-                </a>
-              </Link>
-            ))
-          )}
+          </form>
         </div>
 
-        {/* Social Media */}
-        <div className="side-share mb-50">
-          <h6 className="title mb-20 text-uppercase fw-normal">
-            { rtl ? 'اجتماعي' : 'social' }
-          </h6>
-          <a href="https://x.com/BeatAppio" target="_blank" rel="noopener noreferrer" className="social-icon">
-            <i className="fab fa-twitter"></i>
-          </a>
-          <a href="https://www.facebook.com/beatappio" target="_blank" rel="noopener noreferrer" className="social-icon">
-            <i className="fab fa-facebook-f"></i>
-          </a>
-          <a href="https://www.instagram.com/beatappio/" target="_blank" rel="noopener noreferrer" className="social-icon">
-            <i className="fab fa-instagram"></i>
-          </a>
-          <a href="https://www.linkedin.com/company/beatappio" target="_blank" rel="noopener noreferrer" className="social-icon">
-            <i className="fab fa-linkedin-in"></i>
-          </a>
+        <div className="sidebar-recent-posts mb-40">
+          <h6 className="sidebar-title">{t('blog.recent_posts')}</h6>
+          {loading && <p className="text-muted">{t('blog.loading')}</p>}
+          {error && <p className="text-danger">{t('blog.error')}: {error}</p>}
+          
+          {!loading && !error && recentPosts.map((post, index) => (
+            <div className="recent-post-item" key={post.id || index}>
+              <div className="img">
+                <Link href={post.link}>
+                  <a>
+                    <img src={post.image} alt={post.title} />
+                  </a>
+                </Link>
+              </div>
+              <div className="cont">
+                <Link href={post.link}>
+                  <a>
+                    <h6>{post.title}</h6>
+                  </a>
+                </Link>
+                <p className="text-muted">{post.excerpt}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="sidebar-social">
+          <h6 className="sidebar-title">{t('footer.social_title')}</h6>
+          <div className="social-icons">
+            <a href="#" className="icon">
+              <i className="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" className="icon">
+              <i className="fab fa-twitter"></i>
+            </a>
+            <a href="#" className="icon">
+              <i className="fab fa-instagram"></i>
+            </a>
+            <a href="#" className="icon">
+              <i className="fab fa-linkedin-in"></i>
+            </a>
+          </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Sidebar

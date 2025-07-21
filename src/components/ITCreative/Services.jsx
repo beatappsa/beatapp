@@ -16,7 +16,7 @@ const Services = ({ rtl }) => {
               <h5> {t('services.section_title')} </h5>
               <img src="/assets/img/line_r.png" alt="" />
             </div>
-            <h2 className="">
+            <h2 className="arabic-text">
               {t('services.main_title')}
             </h2>
             <div className="mt-3">
@@ -27,7 +27,7 @@ const Services = ({ rtl }) => {
             <div className="row">
               {
                 data.map((service, index) => (
-                  <div className="col-lg-4 col-sm-6 mb-4" key={index}>
+                  <div className="col-lg-4 col-sm-6 mb-4 mt-4" key={index}>
                     <div className="service-item-style7 h-100">
                       <div className="img">
                         <img src={service.image} alt={service.title} />

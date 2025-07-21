@@ -69,7 +69,21 @@
     "tags": "Tags",
     "author": "Author",
     "date": "Date",
-    "share": "Share"
+    "share": "Share",
+    "next_page": "Next",
+    "previous_page": "Previous",
+    "page_of": "Page {current} of {total}",
+    "posts_found": "{count} posts found",
+    "related_posts": "Related Posts",
+    "recent_posts": "Recent Posts",
+    "uncategorized": "Uncategorized",
+    "posted_on": "Posted on",
+    "our_journal": "Our Journal",
+    "journal_subtitle": "Get the latest articles from our journal, writing, discuss and share",
+    "by": "By",
+    "meta_description": "BeatApp Blog - Latest insights on marketing automation, digital marketing, and business growth",
+    "meta_keywords": "blog, marketing, automation, digital marketing, business growth, BeatApp",
+    "single_post_meta_description": "Read our latest blog post about marketing automation and business growth"
   },
   "error": {
     "404_title": "Page Not Found",

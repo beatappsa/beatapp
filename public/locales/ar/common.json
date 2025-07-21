@@ -69,7 +69,21 @@
     "tags": "الوسوم",
     "author": "الكاتب",
     "date": "التاريخ",
-    "share": "مشاركة"
+    "share": "مشاركة",
+    "next_page": "التالي",
+    "previous_page": "السابق",
+    "page_of": "صفحة {current} من {total}",
+    "posts_found": "تم العثور على {count} مقالات",
+    "related_posts": "مقالات مشابهة",
+    "recent_posts": "أحدث المقالات",
+    "uncategorized": "غير مصنف",
+    "posted_on": "منشور منذ",
+    "our_journal": "مدونتنا",
+    "journal_subtitle": "احصل على آخر المقالات من مدونتنا واقرأ وناقش وشارك",
+    "by": "بواسطة",
+    "meta_description": "مدونة BeatApp - آخر الأفكار حول أتمتة التسويق والتسويق الرقمي ونمو الأعمال",
+    "meta_keywords": "مدونة، تسويق، أتمتة، تسويق رقمي، نمو الأعمال، BeatApp",
+    "single_post_meta_description": "اقرأ آخر مقالاتنا حول أتمتة التسويق ونمو الأعمال"
   },
   "error": {
     "404_title": "الصفحة غير موجودة",

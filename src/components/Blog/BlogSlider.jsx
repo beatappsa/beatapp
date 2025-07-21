@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { useState, useEffect, useCallback } from 'react';
+import { useRouter } from 'next/router';
+import { useTranslation } from 'next-i18next';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination, Autoplay, EffectFade } from 'swiper';
 
@@ -13,22 +15,34 @@ import 'swiper/css/effect-fade';
 SwiperCore.use([Navigation, Pagination, Autoplay, EffectFade]);
 
 const BlogSlider = ({ style = "4", rtl }) => {
+  const router = useRouter();
+  const { t } = useTranslation('common');
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Function to format relative time
+  // Get current language
+  const currentLanguage = router.locale || 'ar';
+
+  // Function to format relative time with language support
   const formatRelativeTime = (dateString) => {
     const now = new Date();
     const postDate = new Date(dateString);
     const diffTime = Math.abs(now - postDate);
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     
-    if (diffDays === 1) return '1 day ago';
-    if (diffDays < 7) return `${diffDays} days ago`;
-    if (diffDays < 30) return `${Math.ceil(diffDays / 7)} week${Math.ceil(diffDays / 7) > 1 ? 's' : ''} ago`;
-    if (diffDays < 365) return `${Math.ceil(diffDays / 30)} month${Math.ceil(diffDays / 30) > 1 ? 's' : ''} ago`;
-    return `${Math.ceil(diffDays / 365)} year${Math.ceil(diffDays / 365) > 1 ? 's' : ''} ago`;
+    if (currentLanguage === 'ar') {
+      if (diffDays === 1) return 'منذ يوم واحد';
+      if (diffDays < 7) return `منذ ${diffDays} أيام`;
+      if (diffDays < 30) return `منذ ${Math.ceil(diffDays / 7)} أسابيع`;
+      return `منذ ${Math.ceil(diffDays / 30)} أشهر`;
+    } else {
+      if (diffDays === 1) return '1 day ago';
+      if (diffDays < 7) return `${diffDays} days ago`;
+      if (diffDays < 30) return `${Math.ceil(diffDays / 7)} week${Math.ceil(diffDays / 7) > 1 ? 's' : ''} ago`;
+      if (diffDays < 365) return `${Math.ceil(diffDays / 30)} month${Math.ceil(diffDays / 30) > 1 ? 's' : ''} ago`;
+      return `${Math.ceil(diffDays / 365)} year${Math.ceil(diffDays / 365) > 1 ? 's' : ''} ago`;
+    }
   };
 
   // Function to extract text from HTML and limit length
@@ -49,7 +63,7 @@ const BlogSlider = ({ style = "4", rtl }) => {
       setError(null);
 
       // Fetch posts with embedded media for featured images
-      const response = await fetch('/api/wordpress/posts?per_page=6&orderby=date&order=desc');
+      const response = await fetch(`/api/wordpress/posts?per_page=6&orderby=date&order=desc&lang=${currentLanguage}`);
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -66,8 +80,8 @@ const BlogSlider = ({ style = "4", rtl }) => {
           featuredImageUrl = post._embedded['wp:featuredmedia'][0].source_url;
         }
 
-        // Get category name (default to 'News')
-        let categoryName = 'News';
+        // Get category name with language support
+        let categoryName = currentLanguage === 'ar' ? 'أخبار' : 'News';
         if (post._embedded && post._embedded['wp:term'] && post._embedded['wp:term'][0] && post._embedded['wp:term'][0][0]) {
           categoryName = post._embedded['wp:term'][0][0].name;
         }
@@ -105,12 +119,12 @@ const BlogSlider = ({ style = "4", rtl }) => {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [currentLanguage]); // Add currentLanguage to dependencies
 
   // Fetch posts on component mount
   useEffect(() => {
     fetchWordPressPosts();
-  }, []);
+  }, [fetchWordPressPosts]); // Add fetchWordPressPosts to dependencies
 
   // Show loading state
   if (loading) {
@@ -138,13 +152,13 @@ const BlogSlider = ({ style = "4", rtl }) => {
     <section className="blog-slider pt-50 pb-50 style-1">
       <div className="container">
         <div className={`section-head text-center mb-60 style-${style}`}>
-          <h2 className="mb-20">{ rtl ? 'أخر' : 'Our' } <span>{ rtl ? 'الأخبار' : 'Journal' }</span></h2>
-          <div className="text color-666">{ rtl ? 'احصل على اخر الاخبار من خلال المدونه ناقش وشارك الخبر مع الاصدقاء' : 'Get the latest articles from our journal, writing, discuss and share' }</div>
+          <h2 className="mb-20">{t('blog.our_journal')}</h2>
+          <div className="text color-666">{t('blog.journal_subtitle')}</div>
         </div>
         
         {error && (
           <div className="alert alert-warning text-center mb-4">
-            <p>Unable to load latest posts. Showing fallback content.</p>
+            <p>{t('blog.error')}</p>
             <small>Error: {error}</small>
           </div>
         )}
@@ -191,10 +205,10 @@ const BlogSlider = ({ style = "4", rtl }) => {
                           <div className="cont">
                             <small className="date small mb-20">
                               <a href="#" className="text-uppercase border-end brd-gray pe-3 me-3">{ slide.type }</a>
-                              <i className="far fa-clock me-2"></i>{ rtl ? 'موعد النشر' : 'Posted on' } <a href="#">{ slide.time }</a> 
+                              <i className="far fa-clock me-2"></i>{t('blog.posted_on')} <a href="#">{ slide.time }</a> 
                             </small>
                             <h2 className="title">
-                              <Link href={slide.link || (rtl ? "/rtl-page-single-post" : "/page-single-post-5")}>
+                              <Link href={slide.link || "/page-single-post-5"}>
                                 <a dangerouslySetInnerHTML={{ __html: slide.title }}></a>
                               </Link>
                             </h2>

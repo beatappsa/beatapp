@@ -35,7 +35,7 @@ const Features = ({ rtl }) => {
     <div className="row">
       {
         data.map((feature, index) => (
-          <div key={index} className="col-lg-4 col-md-6 mb-4">
+          <div key={index} className={rtl ? "col-lg-4 col-md-6 mb-4 mt-4" : "col-lg-4 col-md-6 mb-4"}>
             <a href="#" className="features-card style-7 d-block h-100">
               <div className="icon">
                 <img src={feature.image} alt="" />

@@ -1,6 +1,9 @@
 import Link from 'next/link';
+import { useTranslation } from 'next-i18next';
 
 const Blogs = ({ blogs, isWide, style, rtl, currentPage, totalPages, onPageChange }) => {
+  const { t } = useTranslation('common');
+  
   // Generate pagination items
   const generatePaginationItems = () => {
     const items = [];
@@ -71,7 +74,7 @@ const Blogs = ({ blogs, isWide, style, rtl, currentPage, totalPages, onPageChang
                     <i className="bi bi-clock me-1"></i>
                     <a href="#" className="op-8">{ blog.time }</a>
                   </small>
-                  <Link href={blog.link || (rtl ? "/rtl-page-single-post" : "/page-single-post-5")}>
+                  <Link href={blog.link || "/page-single-post-5"}>
                     <a className="card-title mb-10" dangerouslySetInnerHTML={{ __html: blog.title }}></a>
                   </Link>
                   <p className="fs-13px color-666">{ blog.desc } [...]</p>
@@ -81,7 +84,7 @@ const Blogs = ({ blogs, isWide, style, rtl, currentPage, totalPages, onPageChang
                         { blog.userImgLetter }
                       </span>
                       <a href="#">
-                        <small className="text-muted">{ rtl ? 'بواسطة' : 'By' }</small> { blog.username }
+                        <small className="text-muted">{t('blog.by')}</small> { blog.username }
                       </a>
                     </div>
                     <div className="r-side mt-1">
@@ -110,7 +113,7 @@ const Blogs = ({ blogs, isWide, style, rtl, currentPage, totalPages, onPageChang
                 onPageChange(currentPage - 1);
               }}
             >
-              <span><i className="fas fa-chevron-left"></i> { rtl ? "السابق" : "prev" }</span>
+              <span className="text"><i className="fas fa-chevron-left"></i> {t('blog.previous_page')}</span>
             </a>
           )}
 
@@ -144,7 +147,7 @@ const Blogs = ({ blogs, isWide, style, rtl, currentPage, totalPages, onPageChang
                 onPageChange(currentPage + 1);
               }}
             >
-              <span className="text">{ rtl ? "التالي" : "next" } <i className="fas fa-chevron-right"></i></span>
+              <span className="text">{t('blog.next_page')} <i className="fas fa-chevron-right"></i></span>
             </a>
           )}
         </div>

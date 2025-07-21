@@ -13,23 +13,18 @@ export default async function handler(req, res) {
     // Add common parameters
     params.append('_embed', 'true');
     
-    // Add language support
-    // If your WordPress has WPML or similar plugin, you can filter by language
+    // Try different language filtering approaches
     if (query.lang) {
-      // For WPML plugin - filter by language
-      // params.append('wpml_language', query.lang);
+      // Method 1: Standard Polylang lang parameter
+      params.append('lang', query.lang);
       
-      // For Polylang plugin - use lang parameter
-      // params.append('lang', query.lang);
-      
-      // Store language preference for response formatting
-      params.append('meta_query', JSON.stringify([
-        {
-          'key': '_language',
-          'value': query.lang,
-          'compare': '='
-        }
-      ]));
+      // Method 2: Try language taxonomy (Polylang creates 'language' taxonomy)
+      // This might work better with free Polylang
+      if (query.lang === 'ar') {
+        params.append('language', 'ar'); // or specific term ID
+      } else if (query.lang === 'en') {
+        params.append('language', 'en'); // or specific term ID  
+      }
     }
     
     // Add query parameters from the request
@@ -43,8 +38,6 @@ export default async function handler(req, res) {
     
     const wpApiUrl = `${baseUrl}?${params.toString()}`;
     
-    console.log('Fetching from WordPress API:', wpApiUrl);
-    
     // Fetch from WordPress API
     const response = await fetch(wpApiUrl);
     
@@ -57,7 +50,44 @@ export default async function handler(req, res) {
       });
     }
     
-    const data = await response.json();
+    let data = await response.json();
+    
+    // If WordPress API didn't filter by language, do client-side filtering as fallback
+    if (query.lang && data.length > 0) {
+      // Check if we need client-side filtering based on post titles or content
+      const hasLanguageVariation = data.some(post => {
+        const title = post.title.rendered.toLowerCase();
+        const content = (post.content.rendered || '').toLowerCase();
+        
+        // Simple heuristic: Arabic posts likely contain Arabic characters
+        const hasArabic = /[\u0600-\u06FF]/.test(title + content);
+        // English posts likely contain English words and no Arabic
+        const hasEnglish = /[a-zA-Z]/.test(title) && !/[\u0600-\u06FF]/.test(title);
+        
+        return hasArabic || hasEnglish;
+      });
+      
+      // Always apply client-side filtering if a language is specified
+      data = data.filter(post => {
+        const title = post.title.rendered;
+        const content = post.content.rendered || '';
+        const combined = title + ' ' + content;
+        
+        if (query.lang === 'ar') {
+          // For Arabic: include posts with Arabic characters (exclude test articles)
+          const hasArabicChars = /[\u0600-\u06FF]/.test(combined);
+          return hasArabicChars;
+        } else if (query.lang === 'en') {
+          // For English: include "test article" posts and posts with English but no Arabic
+          const isTestArticle = title.toLowerCase().includes('test article');
+          const hasEnglishChars = /[a-zA-Z]/.test(title);
+          const hasArabicChars = /[\u0600-\u06FF]/.test(combined);
+          return isTestArticle || (hasEnglishChars && !hasArabicChars);
+        }
+        
+        return true; // Default: return all if no specific language requested
+      });
+    }
     
     // Get pagination info from headers
     const totalPosts = response.headers.get('X-WP-Total');
@@ -65,14 +95,11 @@ export default async function handler(req, res) {
     
     // Process posts for language-specific content
     const processedPosts = data.map(post => {
-      // Add language information to each post
       const currentLang = query.lang || 'ar';
       
-      // You can customize this based on your WordPress multilingual setup
       return {
         ...post,
         language: currentLang,
-        // If you have language-specific fields in WordPress, process them here
         title: {
           ...post.title,
           rendered: post.title.rendered || post.title
@@ -93,8 +120,8 @@ export default async function handler(req, res) {
       posts: processedPosts,
       language: query.lang || 'ar',
       pagination: {
-        total: totalPosts ? parseInt(totalPosts) : 0,
-        totalPages: totalPages ? parseInt(totalPages) : 1,
+        total: processedPosts.length, // Use filtered count
+        totalPages: Math.ceil(processedPosts.length / (query.per_page || 10)),
         currentPage: query.page ? parseInt(query.page) : 1,
         perPage: query.per_page ? parseInt(query.per_page) : 10
       }
