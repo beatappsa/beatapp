@@ -166,7 +166,7 @@ const AllNews = ({ isWide, leftSidebar, style = "4", rtl }) => {
   // Fetch posts on component mount and when page changes
   useEffect(() => {
     fetchWordPressPosts(currentPage);
-  }, []);
+  }, [currentPage, fetchWordPressPosts]);
 
   // Show loading state
   if (loading) {

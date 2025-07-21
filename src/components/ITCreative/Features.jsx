@@ -88,7 +88,7 @@ const Features = ({ rtl }) => {
             }
           </div>
           <div className="btns text-center mt-10">
-            <a href="https://beatapp.io/booking" className="btn btn-icon-circle rounded-pill bg-blue7 fw-bold text-white me-4 mb-4 mb-lg-0" target="_blank">
+            <a href="https://beatapp.io/booking" className="btn btn-icon-circle rounded-pill bg-blue7 fw-bold text-white me-4 mb-4 mb-lg-0" target="_blank" rel="noreferrer">
               <small> احجز مكالمتك المجانية <i className="fas fa-long-arrow-alt-left"></i> </small>
             </a>
             <a href="#pricing" className="btn btn-icon-circle rounded-pill bg-white fw-bold me-4">

@@ -7,9 +7,9 @@ import MainLayout from '@layouts/Main';
 //= Components
 import TopNav from '@components/Navbars/TopNav';
 import Navbar from '@components/Navbars/SaasNav/PostNav';
-import AllNews from '@components/SinglePost/AllNews';
-import PopularPosts from '@components/SinglePost/PopularPosts';
-import Footer from '@components/Saas/Footer';
+import AllNews from '@components/Blog/AllNews';
+import PopularPosts from '@components/Blog/PopularPosts';
+import Footer from '@components/ITCreative/Footer';
 
 const PageSinglePost5 = () => {
   const navbarRef = useRef(null);

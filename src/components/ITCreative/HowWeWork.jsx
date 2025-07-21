@@ -77,7 +77,7 @@ const HowWeWork = ({ rtl }) => {
           </div>
           
           <div className="text-center mt-50">
-            <a href="https://beatapp.io/booking" className="btn btn-icon-circle rounded-pill bg-blue7 fw-bold text-white" target="_blank">
+            <a href="https://beatapp.io/booking" className="btn btn-icon-circle rounded-pill bg-blue7 fw-bold text-white" target="_blank" rel="noreferrer">
               <small> 📅 ابدأ مشروعك الآن <i className="fas fa-long-arrow-alt-left"></i> </small>
             </a>
           </div>

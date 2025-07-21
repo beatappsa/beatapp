@@ -26,7 +26,7 @@ const Header = ({ rtl }) => {
                     </p>
                   </div>
                   <div className="d-flex flex-wrap">
-                    <a href="https://beatapp.io/booking" className="btn btn-icon-circle rounded-pill bg-blue7 fw-bold text-white me-4" target="_blank">
+                    <a href="https://beatapp.io/booking" className="btn btn-icon-circle rounded-pill bg-blue7 fw-bold text-white me-4" target="_blank" rel="noreferrer">
                       <small> 🔘 احجز مكالمتك المجانية الآن <i className="fas fa-long-arrow-alt-left"></i> </small>
                     </a>
                     <div className="inf mt-3 mt-lg-0">
@@ -68,7 +68,7 @@ const Header = ({ rtl }) => {
                   Choose The <br /> <span className="num"> #01 </span> <span className="text-grad"> IT Solutions </span> <br /> WP Theme.
                 </h1>
                 <div className="d-flex flex-wrap">
-                  <a href="#0" className="btn btn-icon-circle rounded-pill bg-blue7 fw-bold text-white me-4" target="_blank">
+                  <a href="#0" className="btn btn-icon-circle rounded-pill bg-blue7 fw-bold text-white me-4" target="_blank" rel="noreferrer">
                     <small> Get Started Now <i className="fas fa-long-arrow-alt-right"></i> </small>
                   </a>
                   <div className="inf mt-3 mt-lg-0">

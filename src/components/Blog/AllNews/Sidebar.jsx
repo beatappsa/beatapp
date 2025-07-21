@@ -82,7 +82,7 @@ const Sidebar = ({ style, rtl }) => {
   // Fetch recent posts on component mount
   useEffect(() => {
     fetchRecentPosts();
-  }, []);
+  }, [fetchRecentPosts]);
 
   return (
     <div className="col-lg-4">

@@ -103,7 +103,7 @@ const BlogSlider = ({ style = "4", rtl }) => {
   // Fetch posts on component mount
   useEffect(() => {
     fetchWordPressPosts();
-  }, []);
+  }, [fetchWordPressPosts]);
 
   // Show loading state
   if (loading) {

@@ -8,7 +8,7 @@ const Footer = () => {
           <div className="row">
             <div className="col-lg-4 border-1 border-end brd-gray">
               <div className="info-logo">
-                                  <a href="https://beatapp.io" className="logo" target="_blank">
+                                  <a href="https://beatapp.io" className="logo" target="_blank" rel="noreferrer">
                     <img src="/assets/img/logos/beat logo master .png" alt="BeatApp" style={{maxHeight: '45px'}} />
                 </a>
                 <div className="text">

@@ -145,7 +145,7 @@ const PopularPosts = ({ style = "4", rtl }) => {
   // Fetch posts on component mount
   useEffect(() => {
     fetchPopularPosts();
-  }, []);
+  }, [fetchPopularPosts]);
 
   // Show loading state
   if (loading) {

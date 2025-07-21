@@ -87,7 +87,7 @@ const SystemFeatures = ({ rtl }) => {
                   <p className="text-muted arabic-text mb-4">
                     احصل على عرض توضيحي مخصص لمشروعك واكتشف كيف يمكن لـ BeatApp أن يغير طريقة عملك
                   </p>
-                  <a href="https://beatapp.io/booking" className="btn btn-icon-circle rounded-pill bg-blue7 fw-bold text-white" target="_blank">
+                  <a href="https://beatapp.io/booking" className="btn btn-icon-circle rounded-pill bg-blue7 fw-bold text-white" target="_blank" rel="noreferrer">
                     <small> 🎯 احجز عرضك التوضيحي <i className="fas fa-long-arrow-alt-left"></i> </small>
                   </a>
                 </div>

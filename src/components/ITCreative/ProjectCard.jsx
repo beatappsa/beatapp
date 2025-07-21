@@ -24,7 +24,7 @@ const ProjectCard = ({ project, rtl }) => {
             </ul>
           </div>
           <div className="card-footer bg-transparent">
-            <a href="https://beatapp.io/booking" className="btn btn-outline-primary w-100" target="_blank">
+            <a href="https://beatapp.io/booking" className="btn btn-outline-primary w-100" target="_blank" rel="noreferrer">
               <i className="fas fa-phone me-2"></i>
               احجز مكالمة مجانية
             </a>

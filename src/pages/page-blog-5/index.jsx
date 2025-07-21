@@ -10,7 +10,7 @@ import Navbar from '@components/Navbars/SaasNav';
 import BlogSlider from '@components/Blog/BlogSlider';
 import PopularPosts from '@components/Blog/PopularPosts';
 import AllNews from '@components/Blog/AllNews';
-import Footer from '@components/Saas/Footer';
+import Footer from '@components/ITCreative/Footer';
 
 const PageBlog5 = () => {
   const navbarRef = useRef(null);
