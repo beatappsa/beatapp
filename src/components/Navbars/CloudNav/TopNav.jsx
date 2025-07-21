@@ -24,13 +24,13 @@ const TopNav = () => {
         <div className="row justify-content-between align-items-center gx-0">
           <div className="col-7">
             <div className="top_info">
-              <a href="#" className="me-4">
+              <a href="mailto:info@beatapp.io" className="me-4">
                 <i className="fas fa-envelope-open me-1"></i>
-                <span>info@iteck-tech</span>
+                <span>info@beatapp.io</span>
               </a>
-              <a href="#">
+              <a href="tel:0500934900">
                 <i className="fas fa-phone me-1"></i>
-                <span>+89 (000) 786 999</span>
+                <span>0500934900</span>
               </a>
             </div>
           </div>

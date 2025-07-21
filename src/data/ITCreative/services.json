@@ -1,26 +1,38 @@
 [
   {
     "image": "/assets/img/icons/serv_icons/21.png",
-    "icon": "fas fa-globe",
-    "title": "Networking Solution",
-    "description": "Convoy with popular belief is a not rendom idea."
+    "icon": "fas fa-user-tie",
+    "title": "Trainers and Consultants",
+    "description": "BeatApp prepares your client for purchase with smart and tested steps"
   },
   {
     "image": "/assets/img/icons/serv_icons/22.png",
-    "icon": "fas fa-book",
-    "title": "Business Solution",
-    "description": "Convoy with popular belief is a not rendom idea."
+    "icon": "fas fa-graduation-cap",
+    "title": "Education and Service Companies",
+    "description": "Attracts your serious clients and follows them automatically until contracting"
   },
   {
     "image": "/assets/img/icons/serv_icons/23.png",
-    "icon": "fas fa-bell",
-    "title": "Group Tasking",
-    "description": "Convoy with popular belief is a not rendom idea."
+    "icon": "fas fa-gavel",
+    "title": "Lawyers and Doctors",
+    "description": "Automatic scheduling, appointment reminders, and contact filtering"
   },
   {
     "image": "/assets/img/icons/serv_icons/24.png",
-    "icon": "fas fa-users",
-    "title": "Financial Service",
-    "description": "Convoy with popular belief is a not rendom idea."
+    "icon": "fas fa-video",
+    "title": "Content Creators and Freelancers",
+    "description": "Convert followers to real clients with smart management"
+  },
+  {
+    "image": "/assets/img/icons/serv_icons/21.png",
+    "icon": "fas fa-rocket",
+    "title": "Startup Founders",
+    "description": "Organized launch without confusion or scattered tools"
+  },
+  {
+    "image": "/assets/img/icons/serv_icons/22.png",
+    "icon": "fas fa-building",
+    "title": "Agencies and Companies",
+    "description": "Integrated management for multiple clients with smart automation"
   }
 ]

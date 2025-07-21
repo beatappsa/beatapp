@@ -1,5 +1,7 @@
 import { useEffect, useRef } from 'react';
 import Head from 'next/head';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 //= Scripts
 import navbarScrollEffect from "@common/navbarScrollEffect";
 //= Layout
@@ -14,6 +16,7 @@ import Footer from '@components/ITCreative/Footer';
 
 const PageBlogApp = () => {
   const navbarRef = useRef(null);
+  const { t } = useTranslation('common');
 
   useEffect(() => {
     navbarScrollEffect(navbarRef.current);
@@ -22,7 +25,9 @@ const PageBlogApp = () => {
   return (
     <>
       <Head>
-        <title>Iteck - Blog App</title>
+        <title>{t('blog.title')} - BeatApp</title>
+        <meta name="description" content="BeatApp Blog - Latest insights on marketing automation, digital marketing, and business growth." />
+        <meta name="keywords" content="blog, marketing, automation, digital marketing, business growth, BeatApp" />
       </Head>
 
       <MainLayout>
@@ -37,6 +42,16 @@ const PageBlogApp = () => {
       </MainLayout>
     </>
   )
+}
+
+export async function getStaticProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale || 'ar', [
+        'common',
+      ])),
+    },
+  }
 }
 
 export default PageBlogApp;

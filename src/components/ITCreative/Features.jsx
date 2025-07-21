@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'next-i18next';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Autoplay } from 'swiper';
 import features from '@data/ITCreative/features.json';
@@ -8,8 +9,10 @@ SwiperCore.use([Autoplay]);
 
 import "swiper/css";
 import 'swiper/css/autoplay';
+import { scrollToForm } from '@common/scrollToForm';
 
 const Features = ({ rtl }) => {
+  const { t } = useTranslation('common');
   const [load, setLoad] = useState(false);
   const data = rtl ? featuresRtl : features;
 
@@ -26,14 +29,14 @@ const Features = ({ rtl }) => {
           <div className="section-head text-center style-4 mb-40">
             <div className="top-title mb-10">
               <img src="/assets/img/line_l.png" alt="" />
-              <h5> كيف يعمل </h5>
+              <h5> {t('features.section_title')} </h5>
               <img src="/assets/img/line_r.png" alt="" />
             </div>
             <h2 className="">
-              🔌 نظام واحد… <span> يعمل بدلاً منك </span>
+              {t('features.main_title')}
             </h2>
             <div className="mt-3">
-              <p className="text-muted">BeatApp يوفر عليك إدارة 6 أدوات منفصلة… ويعطيك نتائج أوضح بجهد أقل</p>
+              <p className="text-muted">{t('features.description')}</p>
             </div>
           </div>
         </div>
@@ -75,7 +78,7 @@ const Features = ({ rtl }) => {
                             <img src={feature.image} alt="" />
                           </div>
                           <div className="info">
-                            <p className="color-999"> خطوة {feature.id} </p>
+                            <p className="color-999"> {t('features.step_label')} {feature.id} </p>
                             <h5> {feature.title.part1} <br /> {feature.title.part2} </h5>
                             <small className="text-muted">{feature.description}</small>
                           </div>
@@ -88,11 +91,11 @@ const Features = ({ rtl }) => {
             }
           </div>
           <div className="btns text-center mt-10">
-            <a href="https://beatapp.io/booking" className="btn btn-icon-circle rounded-pill bg-blue7 fw-bold text-white me-4 mb-4 mb-lg-0" target="_blank" rel="noreferrer">
-              <small> احجز مكالمتك المجانية <i className="fas fa-long-arrow-alt-left"></i> </small>
-            </a>
+            <button onClick={scrollToForm} className="btn btn-icon-circle rounded-pill bg-blue7 fw-bold text-white me-4 mb-4 mb-lg-0">
+              <small> {t('features.book_call_btn')} <i className="fas fa-long-arrow-alt-left"></i> </small>
+            </button>
             <a href="#pricing" className="btn btn-icon-circle rounded-pill bg-white fw-bold me-4">
-              <small> شاهد الباقات <i className="fas fa-long-arrow-alt-left bg-light"></i> </small>
+              <small> {t('features.view_packages_btn')} <i className="fas fa-long-arrow-alt-left bg-light"></i> </small>
             </a>
           </div>
         </div>
@@ -107,12 +110,15 @@ const Features = ({ rtl }) => {
         <div className="section-head text-center style-4 mb-40">
           <div className="top-title mb-10">
             <img src="/assets/img/line_l.png" alt="" />
-            <h5> Features </h5>
+            <h5> {t('features.section_title')} </h5>
             <img src="/assets/img/line_r.png" alt="" />
           </div>
           <h2 className="">
-            Built With Best <span> Features </span> <br /> & Good UX
+            {t('features.main_title')}
           </h2>
+          <div className="mt-3">
+            <p className="text-muted">{t('features.description')}</p>
+          </div>
         </div>
       </div>
       <div className="content">
@@ -153,8 +159,9 @@ const Features = ({ rtl }) => {
                           <img src={feature.image} alt="" />
                         </div>
                         <div className="info">
-                          <p className="color-999"> Features {feature.id} </p>
+                          <p className="color-999"> {t('features.step_label')} {feature.id} </p>
                           <h5> {feature.title.part1} <br /> {feature.title.part2} </h5>
+                          <small className="text-muted">{feature.description}</small>
                         </div>
                       </a>
                     </SwiperSlide>
@@ -165,11 +172,11 @@ const Features = ({ rtl }) => {
           }
         </div>
         <div className="btns text-center mt-10">
-          <a href="#0" className="btn btn-icon-circle rounded-pill bg-blue7 fw-bold text-white me-4 mb-4 mb-lg-0">
-            <small> Learn More <i className="fas fa-long-arrow-alt-right"></i> </small>
-          </a>
-          <a href="#0" className="btn btn-icon-circle rounded-pill bg-white fw-bold me-4">
-            <small> Purchase Now <i className="fas fa-long-arrow-alt-right bg-light"></i> </small>
+          <button onClick={scrollToForm} className="btn btn-icon-circle rounded-pill bg-blue7 fw-bold text-white me-4 mb-4 mb-lg-0">
+            <small> {t('features.book_call_btn')} <i className="fas fa-long-arrow-alt-right"></i> </small>
+          </button>
+          <a href="#pricing" className="btn btn-icon-circle rounded-pill bg-white fw-bold me-4">
+            <small> {t('features.view_packages_btn')} <i className="fas fa-long-arrow-alt-right bg-light"></i> </small>
           </a>
         </div>
       </div>

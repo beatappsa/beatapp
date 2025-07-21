@@ -1,7 +1,9 @@
+import { useTranslation } from 'next-i18next';
 import aboutData from '@data/ITCreative/about.json';
 import aboutRtlData from '@data/ITCreative/about-rtl.json';
 
 const About = ({ rtl }) => {
+  const { t } = useTranslation('common');
   const data = rtl ? aboutRtlData : aboutData;
   
   if (rtl) {
@@ -14,14 +16,14 @@ const About = ({ rtl }) => {
                 <div className="section-head style-4 mb-40">
                   <div className="top-title mb-10">
                     <img src="/assets/img/line_l.png" alt="" />
-                    <h5> عن BeatApp </h5>
+                    <h5> {t('about.section_title')} </h5>
                   </div>
                   <h2 className="">
-                    💡 ماذا سيتغير بعد <span> تعاونك معنا؟ </span>
+                    {t('about.main_title')}
                   </h2>
                 </div>
                 <div className="text mb-30">
-                  إذا كنت تعاني من فوضى التسويق، وكثرة الرسائل، وتشتت الأدوات… <strong>BeatApp</strong> يجمع لك كل خطوات جذب العميل ومتابعته وتحويله في نظام واحد يشتغل عنك حتى وأنت مشغول.
+                  {t('about.description')}
                 </div>
                 <ul>
                   {
@@ -34,10 +36,9 @@ const About = ({ rtl }) => {
                   }
                 </ul>
                 <div className="mt-4 p-3 bg-light rounded">
-                  <h6 className="mb-2">🛡️ ضماننا لك:</h6>
+                  <h6 className="mb-2">{t('about.guarantee_title')}</h6>
                   <p className="mb-0 text-muted">
-                    نحن لا نقدم نظامًا جاهزًا للجميع… بل نبني نظامًا مخصصًا لك حسب طبيعة مشروعك. 
-                    ولو شعرت خلال أول 7 أيام إنه لا يخدمك كما توقعت، نصلّح لك المسار أو نوقف الاشتراك… بدون أي التزام.
+                    {t('about.guarantee_text')}
                   </p>
                 </div>
               </div>
@@ -67,14 +68,14 @@ const About = ({ rtl }) => {
               <div className="section-head style-4 mb-40">
                 <div className="top-title mb-10">
                   <img src="/assets/img/line_l.png" alt="" />
-                  <h5> About Us </h5>
+                  <h5> {t('about.section_title')} </h5>
                 </div>
                 <h2 className="">
-                  Meet With <span> A House </span> <br /> Of Creatives.
+                  {t('about.main_title')}
                 </h2>
               </div>
               <div className="text mb-30">
-                Stay focused and productive with a clean and clutter-free note space. The flexible ways to organize your notes: hash tags, nested notebooks, pinning notes.
+                {t('about.description')}
               </div>
               <ul>
                 {
@@ -86,11 +87,17 @@ const About = ({ rtl }) => {
                   ))
                 }
               </ul>
+              <div className="mt-4 p-3 bg-light rounded">
+                <h6 className="mb-2">{t('about.guarantee_title')}</h6>
+                <p className="mb-0 text-muted">
+                  {t('about.guarantee_text')}
+                </p>
+              </div>
             </div>
           </div>
           <div className="col-lg-7">
             <div className="img">
-              <img src="/assets/img/about/about7.jpg" alt="" className="main-img" />
+              <img src="/assets/img/about/about7.jpg" alt="BeatApp Marketing Automation" className="main-img" />
               <img src="/assets/img/about/about7_chart.png" alt="" className="img-chart slide_up_down" />
               <span className="circle scale_up_down"></span>
             </div>

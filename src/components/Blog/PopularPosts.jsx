@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 const PopularPosts = ({ style = "4", rtl }) => {
   const [posts, setPosts] = useState([]);
@@ -39,21 +39,20 @@ const PopularPosts = ({ style = "4", rtl }) => {
   };
 
   // Function to fetch WordPress posts with "popular" tag
-  const fetchPopularPosts = async () => {
+  const fetchPopularPosts = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
 
       // Fetch posts with "popular" tag (ID: 469), embedded media, and author info
-      const response = await fetch(
-        'http://amin.local/wp-json/wp/v2/posts?tags=469&_embed&per_page=3&orderby=date&order=desc'
-      );
+      const response = await fetch('/api/wordpress/posts?tags=469&per_page=3&orderby=date&order=desc');
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      const wpPosts = await response.json();
+      const data = await response.json();
+      const wpPosts = data.posts;
 
       // Transform WordPress posts to match the component's expected format
       const transformedPosts = wpPosts.map((post) => {
@@ -140,12 +139,12 @@ const PopularPosts = ({ style = "4", rtl }) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   // Fetch posts on component mount
   useEffect(() => {
     fetchPopularPosts();
-  }, [fetchPopularPosts]);
+  }, []);
 
   // Show loading state
   if (loading) {

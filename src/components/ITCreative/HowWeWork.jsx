@@ -1,4 +1,5 @@
 import React from 'react'
+import { scrollToForm } from '@common/scrollToForm'
 
 const HowWeWork = ({ rtl }) => {
   if (rtl) {
@@ -77,9 +78,9 @@ const HowWeWork = ({ rtl }) => {
           </div>
           
           <div className="text-center mt-50">
-            <a href="https://beatapp.io/booking" className="btn btn-icon-circle rounded-pill bg-blue7 fw-bold text-white" target="_blank" rel="noreferrer">
+            <button onClick={scrollToForm} className="btn btn-icon-circle rounded-pill bg-blue7 fw-bold text-white">
               <small> 📅 ابدأ مشروعك الآن <i className="fas fa-long-arrow-alt-left"></i> </small>
-            </a>
+            </button>
           </div>
         </div>
       </section>

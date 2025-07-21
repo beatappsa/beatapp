@@ -1,12 +1,5 @@
 {
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js",
-  "/": "pages/index.html",
-  "/page-404": "pages/page-404.html",
-  "/page-blog-5": "pages/page-blog-5.html",
-  "/page-blog-app": "pages/page-blog-app.html",
-  "/page-single-post-5": "pages/page-single-post-5.html",
-  "/page-single-post-app": "pages/page-single-post-app.html",
-  "/404": "pages/404.html"
+  "/_document": "pages/_document.js"
 }

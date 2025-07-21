@@ -1,6 +1,10 @@
 import React from 'react'
+import { useTranslation } from 'next-i18next';
+import { scrollToForm } from '@common/scrollToForm'
 
 const CallToAction = ({ rtl }) => {
+  const { t } = useTranslation('common');
+
   if (rtl) {
     return (
       <section className="call-to-action section-padding">
@@ -14,33 +18,31 @@ const CallToAction = ({ rtl }) => {
                 
                 <div className="cta-main text-center">
                   <h2 className="arabic-text display-3 font-bold mb-4">
-                    📅 احجز مكالمتك المجانية الآن
+                    {t('cta.title')}
                   </h2>
                   
                   <p className="arabic-text text-xl leading-relaxed mb-5">
-                    🎁 جلسة مجانية 15 دقيقة نرسم لك فيها أفضل Funnel حسب طبيعة مشروعك.
+                    {t('cta.subtitle')}
                   </p>
                   
                   <div className="cta-actions mb-5">
-                    <a 
-                      href="https://beatapp.io/booking" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
+                    <button 
+                      onClick={scrollToForm}
                       className="btn btn-primary btn-lg cta-button mb-3"
                     >
                       <span className="arabic-text font-semibold">
-                        📍 احجز الآن عبر beatapp.io/booking
+                        {t('cta.button')}
                       </span>
-                    </a>
+                    </button>
                   </div>
                   
                   <div className="contact-info">
                     <div className="contact-details">
                       <a href="mailto:info@beatapp.io" className="contact-link me-4">
-                        📧 info@beatapp.io
+                        {t('cta.email')}
                       </a>
                       <a href="tel:0500934900" className="contact-link">
-                        📞 0500934900
+                        {t('cta.phone')}
                       </a>
                     </div>
                   </div>
@@ -50,7 +52,7 @@ const CallToAction = ({ rtl }) => {
           </div>
         </div>
       </section>
-    );
+    )
   }
 
   return (
@@ -65,33 +67,31 @@ const CallToAction = ({ rtl }) => {
               
               <div className="cta-main text-center">
                 <h2 className="display-3 font-bold mb-4">
-                  📅 Book Your Free Call Now
+                  {t('cta.title')}
                 </h2>
                 
                 <p className="text-xl leading-relaxed mb-5">
-                  🎁 Free 15-minute session where we design the best funnel according to your project nature.
+                  {t('cta.subtitle')}
                 </p>
                 
                 <div className="cta-actions mb-5">
-                  <a 
-                    href="https://beatapp.io/booking" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
+                  <button 
+                    onClick={scrollToForm}
                     className="btn btn-primary btn-lg cta-button mb-3"
                   >
                     <span className="font-semibold">
-                      📍 Book Now via beatapp.io/booking
+                      {t('cta.button')}
                     </span>
-                  </a>
+                  </button>
                 </div>
                 
                 <div className="contact-info">
                   <div className="contact-details">
                     <a href="mailto:info@beatapp.io" className="contact-link me-4">
-                      📧 info@beatapp.io
+                      {t('cta.email')}
                     </a>
                     <a href="tel:0500934900" className="contact-link">
-                      📞 0500934900
+                      {t('cta.phone')}
                     </a>
                   </div>
                 </div>
@@ -101,7 +101,7 @@ const CallToAction = ({ rtl }) => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default CallToAction; 
+export default CallToAction 

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import Link from 'next/link';
 
 const Sidebar = ({ style, rtl }) => {
@@ -15,19 +15,20 @@ const Sidebar = ({ style, rtl }) => {
   };
 
   // Function to fetch latest 3 WordPress posts for recent posts section
-  const fetchRecentPosts = async () => {
+  const fetchRecentPosts = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
 
       // Fetch latest 3 posts with embedded media for featured images
-      const response = await fetch('http://amin.local/wp-json/wp/v2/posts?_embed&per_page=3&orderby=date&order=desc');
+      const response = await fetch('/api/wordpress/posts?per_page=3&orderby=date&order=desc');
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      const wpPosts = await response.json();
+      const data = await response.json();
+      const wpPosts = data.posts;
 
       // Transform WordPress posts to match the sidebar format
       const transformedPosts = wpPosts.map((post) => {
@@ -77,12 +78,12 @@ const Sidebar = ({ style, rtl }) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   // Fetch recent posts on component mount
   useEffect(() => {
     fetchRecentPosts();
-  }, [fetchRecentPosts]);
+  }, []);
 
   return (
     <div className="col-lg-4">

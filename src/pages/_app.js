@@ -1,6 +1,7 @@
 import React from "react";
 import Script from "next/script";
 import Head from "next/head";
+import { appWithTranslation } from 'next-i18next';
 import "../styles/preloader.css";
 import "../styles/globals.css";
 
@@ -8,7 +9,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Iteck</title>
+        <title>BeatApp - أتمتة التسويق الذكية</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
       </Head>
 
@@ -24,4 +25,4 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);

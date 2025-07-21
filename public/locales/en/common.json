@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "home": "Home",
+    "blog": "Blog",
+    "contact": "Contact Us",
+    "about": "About Us",
+    "services": "Services",
+    "portfolio": "Portfolio"
+  },
+  "footer": {
+    "cta_title": "📅 Book Your Free Call Now",
+    "cta_subtitle": "🎁 Free 15-minute session where we design the best Funnel for your business",
+    "book_now": "📍 Book Now",
+    "social_title": "Follow Us",
+    "copyright": "© 2024 BeatApp - All Rights Reserved"
+  },
+  "header": {
+    "brand_name": "BeatApp",
+    "hero_title": "🚀 Want to double your customers without wasting time on marketing?",
+    "hero_title_highlight": "double your customers",
+    "hero_title_number": "without wasting time",
+    "hero_description": "BeatApp combines all the steps of attracting, following up with, and converting customers into one system that works for you even when you're busy.",
+    "cta_button": "📅 Book Your Free Call Now",
+    "contact_label": "Contact",
+    "phone_number": "📞 0500934900"
+  },
+  "about": {
+    "section_title": "About BeatApp",
+    "main_title": "💡 What will change after working with us?",
+    "main_title_highlight": "working with us?",
+    "description": "If you're suffering from marketing chaos, too many messages, and scattered tools... BeatApp combines all the steps of attracting, following up with, and converting customers into one system that works for you even when you're busy.",
+    "guarantee_title": "🛡️ Our Guarantee to You:",
+    "guarantee_text": "We don't provide a ready-made system for everyone... but we build a customized system for you based on your project's nature. And if you feel within the first 7 days that it doesn't serve you as expected, we'll fix the path or stop the subscription... without any commitment."
+  },
+  "features": {
+    "section_title": "How It Works",
+    "main_title": "🔌 One System… That Works Instead of You",
+    "main_title_highlight": "Works Instead of You",
+    "description": "BeatApp saves you from managing 6 separate tools... and gives you clearer results with less effort",
+    "step_label": "Step",
+    "book_call_btn": "Book Your Free Call",
+    "view_packages_btn": "View Packages"
+  },
+  "services": {
+    "section_title": "Our Services",
+    "main_title": "🎯 Is \"BeatApp\" Right for You?",
+    "description": "If you are...",
+    "learn_more": "Learn More"
+  },
+  "cta": {
+    "title": "📅 Book Your Free Call Now",
+    "subtitle": "🎁 Free 15-minute session where we design the best Funnel for your business.",
+    "button": "📍 Book Now",
+    "email": "📧 info@beatapp.io",
+    "phone": "📞 0500934900"
+  },
+  "blog": {
+    "title": "Blog",
+    "latest_posts": "Latest Posts",
+    "popular_posts": "Popular Posts",
+    "read_more": "Read More",
+    "comments": "Comments",
+    "views": "Views",
+    "loading": "Loading...",
+    "error": "Error loading posts",
+    "no_posts": "No posts available",
+    "search": "Search",
+    "categories": "Categories",
+    "tags": "Tags",
+    "author": "Author",
+    "date": "Date",
+    "share": "Share"
+  },
+  "error": {
+    "404_title": "Page Not Found",
+    "404_message": "Sorry, the page you are looking for cannot be found.",
+    "go_home": "Go to Homepage"
+  },
+  "general": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Retry",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "page": "Page",
+    "of": "of",
+    "total": "Total"
+  },
+  "language": {
+    "switch_to_english": "English",
+    "switch_to_arabic": "العربية",
+    "current_language": "English"
+  }
+} 

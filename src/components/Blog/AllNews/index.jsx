@@ -1,8 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import { useRouter } from 'next/router';
+import { useTranslation } from 'next-i18next';
 import Blogs from './Blogs';
 import Sidebar from './Sidebar';
 
 const AllNews = ({ isWide, leftSidebar, style = "4", rtl }) => {
+  const router = useRouter();
+  const { t } = useTranslation('common');
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -11,17 +15,27 @@ const AllNews = ({ isWide, leftSidebar, style = "4", rtl }) => {
   const [totalPosts, setTotalPosts] = useState(0);
   const postsPerPage = 7; // Number of posts per page
 
-  // Function to format relative time
+  // Get current language
+  const currentLanguage = router.locale || 'ar';
+
+  // Function to format relative time with language support
   const formatRelativeTime = (dateString) => {
     const now = new Date();
     const postDate = new Date(dateString);
     const diffTime = Math.abs(now - postDate);
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     
-    if (diffDays === 1) return '1 day ago';
-    if (diffDays < 7) return `${diffDays} days ago`;
-    if (diffDays < 30) return `${Math.ceil(diffDays / 7)} weeks ago`;
-    return `${Math.ceil(diffDays / 30)} months ago`;
+    if (currentLanguage === 'ar') {
+      if (diffDays === 1) return 'منذ يوم واحد';
+      if (diffDays < 7) return `منذ ${diffDays} أيام`;
+      if (diffDays < 30) return `منذ ${Math.ceil(diffDays / 7)} أسابيع`;
+      return `منذ ${Math.ceil(diffDays / 30)} أشهر`;
+    } else {
+      if (diffDays === 1) return '1 day ago';
+      if (diffDays < 7) return `${diffDays} days ago`;
+      if (diffDays < 30) return `${Math.ceil(diffDays / 7)} weeks ago`;
+      return `${Math.ceil(diffDays / 30)} months ago`;
+    }
   };
 
   // Function to extract text from HTML and limit length
@@ -40,32 +54,33 @@ const AllNews = ({ isWide, leftSidebar, style = "4", rtl }) => {
   // Function to generate random view count (since WordPress doesn't provide this by default)
   const generateViewCount = () => {
     const randomNum = Math.floor(Math.random() * 999) + 1;
-    return `${randomNum}k`;
+    const suffix = currentLanguage === 'ar' ? 'ك' : 'k';
+    return `${randomNum}${suffix}`;
   };
 
-  // Function to fetch WordPress posts
-  const fetchWordPressPosts = async (page = 1) => {
+  // Function to fetch WordPress posts with language support
+  const fetchWordPressPosts = useCallback(async (page = 1) => {
     try {
       setLoading(true);
       setError(null);
 
-      // Fetch posts with embedded media and author info, with pagination
-      const response = await fetch(
-        `http://amin.local/wp-json/wp/v2/posts?_embed&per_page=${postsPerPage}&page=${page}&orderby=date&order=desc`
-      );
+      // Build API URL with language parameter
+      const apiUrl = `/api/wordpress/posts?per_page=${postsPerPage}&page=${page}&orderby=date&order=desc&lang=${currentLanguage}`;
+
+      const response = await fetch(apiUrl);
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      const wpPosts = await response.json();
+      const data = await response.json();
+      const wpPosts = data.posts;
       
-      // Get total pages from response headers
-      const totalPagesHeader = response.headers.get('x-wp-totalpages');
-      const totalPostsHeader = response.headers.get('x-wp-total');
-      
-      if (totalPagesHeader) setTotalPages(parseInt(totalPagesHeader));
-      if (totalPostsHeader) setTotalPosts(parseInt(totalPostsHeader));
+      // Get pagination info from response
+      if (data.pagination) {
+        setTotalPages(data.pagination.totalPages);
+        setTotalPosts(data.pagination.total);
+      }
 
       // Transform WordPress posts to match the component's expected format
       const transformedPosts = wpPosts.map((post) => {
@@ -75,14 +90,14 @@ const AllNews = ({ isWide, leftSidebar, style = "4", rtl }) => {
           featuredImageUrl = post._embedded['wp:featuredmedia'][0].source_url;
         }
 
-        // Get category name (default to 'News')
-        let categoryName = 'News';
+        // Get category name (default based on language)
+        let categoryName = currentLanguage === 'ar' ? 'أخبار' : 'News';
         if (post._embedded && post._embedded['wp:term'] && post._embedded['wp:term'][0] && post._embedded['wp:term'][0][0]) {
           categoryName = post._embedded['wp:term'][0][0].name;
         }
 
-        // Get author name
-        let authorName = 'Admin';
+        // Get author name (default based on language)
+        let authorName = currentLanguage === 'ar' ? 'مدير الموقع' : 'Admin';
         if (post._embedded && post._embedded.author && post._embedded.author[0]) {
           authorName = post._embedded.author[0].name;
         }
@@ -99,7 +114,8 @@ const AllNews = ({ isWide, leftSidebar, style = "4", rtl }) => {
           comments: post._embedded && post._embedded.replies ? post._embedded.replies[0].length.toString() : Math.floor(Math.random() * 50 + 10).toString(),
           views: generateViewCount(),
           slug: post.slug,
-          link: `/page-single-post-5?id=${post.id}` // You can customize this based on your routing
+          link: `/page-single-post-5?id=${post.id}`,
+          language: currentLanguage
         };
       });
 
@@ -107,53 +123,36 @@ const AllNews = ({ isWide, leftSidebar, style = "4", rtl }) => {
     } catch (err) {
       console.error('Error fetching WordPress posts:', err);
       setError(err.message);
-      // Set fallback data in case of error
+      // Set fallback data in case of error (language-aware)
+      const fallbackTitle = currentLanguage === 'ar' 
+        ? 'كيف تصبح خبيراً في تطوير Python' 
+        : 'How To Become A Python Develop Expert';
+      
+      const fallbackDesc = currentLanguage === 'ar'
+        ? 'إذا كانت هناك طريقة واحدة غيرت بها التكنولوجيا اللاسلكية طريقة عملنا، فهي أن الجميع'
+        : 'If there\'s one way that wireless technology has changed the way we work, it\'s that will everyone';
+
       setBlogs([
         {
           id: 1,
           cover: "/assets/img/blog/6.png",
-          type: "news",
-          time: "12 Days ago",
-          title: "How To Become A Python Develop Expert",
-          desc: "If there's one way that wireless technology has changed the way we work, it's that will everyone",
+          type: currentLanguage === 'ar' ? 'أخبار' : 'news',
+          time: currentLanguage === 'ar' ? 'منذ 12 يوماً' : '12 Days ago',
+          title: fallbackTitle,
+          desc: fallbackDesc,
           userImgLetter: "a",
-          username: "Admin",
+          username: currentLanguage === 'ar' ? 'مدير الموقع' : 'Admin',
           comments: "24",
-          views: "774k",
-          link: "/page-single-post-5"
-        },
-        {
-          id: 2,
-          cover: "/assets/img/blog/4.jpeg",
-          type: "news",
-          time: "12 Days ago",
-          title: "VR Game, Oppoturnity & Challenge",
-          desc: "If there's one way that wireless technology has changed the way we work, it's that will everyone",
-          userImgLetter: "a",
-          username: "Admin",
-          comments: "24",
-          views: "774k",
-          link: "/page-single-post-5"
-        },
-        {
-          id: 3,
-          cover: "/assets/img/blog/10.png",
-          type: "tips & tricks",
-          time: "12 Days ago",
-          title: "6 Tips To Help You Build Your Social Media Effeciency & Better",
-          desc: "If there's one way that wireless technology has changed the way we work, it's that will everyone",
-          userImgLetter: "a",
-          username: "Admin",
-          comments: "24",
-          views: "774k",
-          link: "/page-single-post-5"
+          views: currentLanguage === 'ar' ? '774ك' : '774k',
+          link: "/page-single-post-5",
+          language: currentLanguage
         }
       ]);
       setTotalPages(1);
     } finally {
       setLoading(false);
     }
-  };
+  }, [postsPerPage, currentLanguage]);
 
   // Handle page change
   const handlePageChange = (page) => {
@@ -163,7 +162,7 @@ const AllNews = ({ isWide, leftSidebar, style = "4", rtl }) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Fetch posts on component mount and when page changes
+  // Fetch posts on component mount and when language or page changes
   useEffect(() => {
     fetchWordPressPosts(currentPage);
   }, [currentPage, fetchWordPressPosts]);
@@ -178,9 +177,9 @@ const AllNews = ({ isWide, leftSidebar, style = "4", rtl }) => {
             <div className={isWide ? 'col-lg-10':'col-lg-8'}>
               <div className="text-center py-5">
                 <div className="spinner-border text-primary" role="status">
-                  <span className="visually-hidden">Loading...</span>
+                  <span className="visually-hidden">{t('blog.loading')}</span>
                 </div>
-                <p className="mt-3">Loading latest posts...</p>
+                <p className="mt-3">{t('blog.loading')}</p>
               </div>
             </div>
             { !isWide && !leftSidebar && <Sidebar style={style} rtl={rtl} /> }
@@ -195,7 +194,7 @@ const AllNews = ({ isWide, leftSidebar, style = "4", rtl }) => {
       <div className="container">
         {error && (
           <div className="alert alert-warning text-center mb-4">
-            <p>Unable to load latest posts. Showing fallback content.</p>
+            <p>{t('blog.error')}</p>
             <small>Error: {error}</small>
           </div>
         )}

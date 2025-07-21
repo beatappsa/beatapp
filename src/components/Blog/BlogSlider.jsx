@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination, Autoplay, EffectFade } from 'swiper';
 
@@ -26,32 +26,37 @@ const BlogSlider = ({ style = "4", rtl }) => {
     
     if (diffDays === 1) return '1 day ago';
     if (diffDays < 7) return `${diffDays} days ago`;
-    if (diffDays < 30) return `${Math.ceil(diffDays / 7)} weeks ago`;
-    return `${Math.ceil(diffDays / 30)} months ago`;
+    if (diffDays < 30) return `${Math.ceil(diffDays / 7)} week${Math.ceil(diffDays / 7) > 1 ? 's' : ''} ago`;
+    if (diffDays < 365) return `${Math.ceil(diffDays / 30)} month${Math.ceil(diffDays / 30) > 1 ? 's' : ''} ago`;
+    return `${Math.ceil(diffDays / 365)} year${Math.ceil(diffDays / 365) > 1 ? 's' : ''} ago`;
   };
 
   // Function to extract text from HTML and limit length
   const extractTextFromHTML = (html, maxLength = 150) => {
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = html;
-    const text = tempDiv.textContent || tempDiv.innerText || '';
-    return text.length > maxLength ? text.substring(0, maxLength) : text;
+    if (typeof window !== 'undefined') {
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = html;
+      const text = tempDiv.textContent || tempDiv.innerText || '';
+      return text.length > maxLength ? text.substring(0, maxLength) : text;
+    }
+    return 'Loading content...';
   };
 
   // Function to fetch WordPress posts
-  const fetchWordPressPosts = async () => {
+  const fetchWordPressPosts = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
 
       // Fetch posts with embedded media for featured images
-      const response = await fetch('http://amin.local/wp-json/wp/v2/posts?_embed&per_page=6&orderby=date&order=desc');
+      const response = await fetch('/api/wordpress/posts?per_page=6&orderby=date&order=desc');
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      const wpPosts = await response.json();
+      const data = await response.json();
+      const wpPosts = data.posts;
 
       // Transform WordPress posts to match the component's expected format
       const transformedPosts = wpPosts.map((post) => {
@@ -80,9 +85,11 @@ const BlogSlider = ({ style = "4", rtl }) => {
       });
 
       setPosts(transformedPosts);
-    } catch (err) {
-      console.error('Error fetching WordPress posts:', err);
-      setError(err.message);
+
+    } catch (error) {
+      console.error('Error fetching WordPress posts:', error);
+      setError('Failed to load blog posts. Please try again later.');
+      
       // Set fallback data in case of error
       setPosts([
         {
@@ -98,12 +105,12 @@ const BlogSlider = ({ style = "4", rtl }) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   // Fetch posts on component mount
   useEffect(() => {
     fetchWordPressPosts();
-  }, [fetchWordPressPosts]);
+  }, []);
 
   // Show loading state
   if (loading) {
@@ -182,7 +189,7 @@ const BlogSlider = ({ style = "4", rtl }) => {
                       <div className="row">
                         <div className="col-lg-6">
                           <div className="cont">
-                            <small className="date small mb-20"> 
+                            <small className="date small mb-20">
                               <a href="#" className="text-uppercase border-end brd-gray pe-3 me-3">{ slide.type }</a>
                               <i className="far fa-clock me-2"></i>{ rtl ? 'موعد النشر' : 'Posted on' } <a href="#">{ slide.time }</a> 
                             </small>
