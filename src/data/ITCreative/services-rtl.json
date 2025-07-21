@@ -1,0 +1,38 @@
+[
+  {
+    "image": "/assets/img/icons/serv_icons/21.png",
+    "icon": "fas fa-user-tie",
+    "title": "المدربون والمستشارون",
+    "description": "BeatApp يمهد عميلك للشراء بخطوات ذكية ومُجربة"
+  },
+  {
+    "image": "/assets/img/icons/serv_icons/22.png",
+    "icon": "fas fa-graduation-cap",
+    "title": "شركات التعليم والخدمات",
+    "description": "يجذب عملاءك الجادين ويتابعهم آليًا حتى التعاقد"
+  },
+  {
+    "image": "/assets/img/icons/serv_icons/23.png",
+    "icon": "fas fa-gavel",
+    "title": "المحامون والأطباء",
+    "description": "جدولة تلقائية، تذكير بالمواعيد، وفلترة المتواصلين"
+  },
+  {
+    "image": "/assets/img/icons/serv_icons/24.png",
+    "icon": "fas fa-video",
+    "title": "صناع المحتوى والمستقلون",
+    "description": "تحويل المتابعين لعملاء حقيقيين بإدارة ذكية"
+  },
+  {
+    "image": "/assets/img/icons/serv_icons/21.png",
+    "icon": "fas fa-rocket",
+    "title": "مؤسسو المشاريع الناشئة",
+    "description": "إطلاق منظم بدون تخبط أو أدوات مشتتة"
+  },
+  {
+    "image": "/assets/img/icons/serv_icons/22.png",
+    "icon": "fas fa-building",
+    "title": "الوكالات والشركات",
+    "description": "إدارة متكاملة لعملاء متعددين بأتمتة ذكية"
+  }
+] 

@@ -1,0 +1,56 @@
+{
+  "numCards": [
+    {
+      "image": "/assets/img/icons/testi_s4_ic1.png",
+      "value": "+1000",
+      "type": {
+        "text1": "عميل",
+        "text2": "سعيد"
+      }
+    },
+    {
+      "image": "/assets/img/icons/testi_s4_ic2.png",
+      "value": "4.9/5",
+      "stars": 5,
+      "type": "بناءً على تقييمات العملاء"
+    }
+  ],
+  "testiCards": [
+    {
+      "userImg": "/assets/img/testimonials/user4.png",
+      "stars": 5,
+      "title": {
+        "text1": "“لقد ساعدنا BeatApp على زيادة مبيعاتنا بشكل كبير”,",
+        "text2": "“نوصي به بشدة.”"
+      },
+      "author": {
+        "name": "أحمد خالد",
+        "position": "مدير تسويق",
+        "company": "شركة ABC"
+      }
+    },
+    {
+      "userImg": "/assets/img/testimonials/user5.png",
+      "stars": 5,
+      "title": "“أفضل أداة لإدارة علاقات العملاء استخدمتها على الإطلاق.”",
+      "author": {
+        "name": "فاطمة علي",
+        "position": "صاحبة عمل",
+        "company": "متجر XYZ"
+      }
+    },
+    {
+      "userImg": "/assets/img/testimonials/user6.png",
+      "stars": 5,
+      "title": {
+        "text1": "“سهل الاستخدام وفعال للغاية.”,",
+        "text2": "“لا يمكننا الاستغناء عنه.”"
+      },
+      "author": {
+        "name": "محمد سعيد",
+        "position": "مدير مبيعات",
+        "company": "شركة 123"
+      }
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "author": "مدرب تطوير ذات",
+    "location": "الرياض",
+    "content": "أنا كنت أحسب عندي مشكلة في التسويق... اكتشفت إني بس محتاج نظام ذكي يشيل عني.",
+    "image": "/assets/img/testimonials/1.jpg",
+    "rating": 5
+  },
+  {
+    "author": "صانعة محتوى",
+    "location": "جدة", 
+    "content": "الواتساب يرد عني، الإيميلات شغالة، والعميل يوصلني جاهز... شكراً BeatApp!",
+    "image": "/assets/img/testimonials/2.jpg",
+    "rating": 5
+  },
+  {
+    "author": "مؤسس شركة ناشئة",
+    "location": "الدمام",
+    "content": "BeatApp وفر علي إدارة 6 أدوات منفصلة... وأعطاني نتائج أوضح بجهد أقل.",
+    "image": "/assets/img/testimonials/3.jpg",
+    "rating": 5
+  }
+] 

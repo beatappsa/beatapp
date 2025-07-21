@@ -1,0 +1,7 @@
+{
+  "features": [
+    { "icon": "fas fa-layer-group", "title": "أنظمة متكاملة" },
+    { "icon": "fas fa-cogs", "title": "أتمتة كاملة" },
+    { "icon": "fas fa-chart-line", "title": "تقارير وتحليلات دقيقة" }
+  ]
+}

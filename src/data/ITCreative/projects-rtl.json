@@ -1,0 +1,68 @@
+{
+  "types": [
+    {
+      "id": 1,
+      "title": "باقات الاشتراك",
+      "tab": 1
+    }
+  ],
+  "tabs": [
+    {
+      "id": 1,
+      "projects": [
+        {
+          "title": "Starter",
+          "description": "الباقة الأساسية",
+          "price": "699 ريال / شهر",
+          "details": "لبداية بسيطة وسريعة",
+          "features": [
+            "واتساب بوت أساسي",
+            "رسائل إيميل تلقائية",
+            "CRM بسيط",
+            "دعم فني"
+          ],
+          "image": "/assets/img/portfolio/portfolio_1.jpg"
+        },
+        {
+          "title": "Pro Funnel",
+          "description": "الباقة الاحترافية", 
+          "price": "1,499 ريال / شهر",
+          "details": "لمن يبيع دورات أو خدمات استشارية",
+          "features": [
+            "كل مزايا Starter",
+            "صفحات هبوط مخصصة",
+            "تسلسل ذكي متقدم",
+            "تقارير تفصيلية"
+          ],
+          "image": "/assets/img/portfolio/portfolio_2.jpg"
+        },
+        {
+          "title": "Full System",
+          "description": "النظام الكامل",
+          "price": "2,999 ريال / شهر", 
+          "details": "للبراندات الشخصية والشركات الجادة",
+          "features": [
+            "كل مزايا Pro Funnel",
+            "أتمتة كاملة",
+            "إدارة متعددة المشاريع",
+            "دعم مخصص 24/7"
+          ],
+          "image": "/assets/img/portfolio/portfolio_3.jpg"
+        },
+        {
+          "title": "VIP Branding",
+          "description": "الباقة المميزة",
+          "price": "بالطلب",
+          "details": "محتوى + Funnel + إدارة تسويق كاملة", 
+          "features": [
+            "كل مزايا Full System",
+            "إنشاء محتوى",
+            "إدارة تسويق كاملة",
+            "استشارات شخصية"
+          ],
+          "image": "/assets/img/portfolio/portfolio_4.jpg"
+        }
+      ]
+    }
+  ]
+} 

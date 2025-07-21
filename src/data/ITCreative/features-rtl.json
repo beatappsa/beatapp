@@ -1,0 +1,56 @@
+[
+  {
+    "id": "01",
+    "image": "/assets/img/icons/fe1.png",
+    "title": {
+      "part1": "واتساب ذكي",
+      "part2": "يرد عنك تلقائياً"
+    },
+    "description": "بوت يرد عنك، يجمع بيانات العملاء، ويتابع تلقائياً"
+  },
+  {
+    "id": "02", 
+    "image": "/assets/img/icons/fe2.png",
+    "title": {
+      "part1": "إيميلات تلقائية",
+      "part2": "حسب كل عميل"
+    },
+    "description": "رسائل تُرسل أوتوماتيكياً حسب ما يناسب كل عميل"
+  },
+  {
+    "id": "03",
+    "image": "/assets/img/icons/fe3.png", 
+    "title": {
+      "part1": "تسلسل ذكي",
+      "part2": "لكل عميل"
+    },
+    "description": "كل عميل يمشي في funnel أو مسار خاص به إلى أن يتم تحويله"
+  },
+  {
+    "id": "04",
+    "image": "/assets/img/icons/fe4.png",
+    "title": {
+      "part1": "صفحات هبوط",
+      "part2": "تحويل ذكي"
+    },
+    "description": "تجعل الزائر يتحول إلى عميل، بدون أن يشعر إنه في عملية بيع"
+  },
+  {
+    "id": "05",
+    "image": "/assets/img/icons/fe1.png",
+    "title": {
+      "part1": "CRM تلقائي",
+      "part2": "إدارة العملاء"
+    },
+    "description": "تجعل كل متفاعل يتسجل عندك بالاسم والحالة والمتابعة"
+  },
+  {
+    "id": "06",
+    "image": "/assets/img/icons/fe2.png",
+    "title": {
+      "part1": "تنبيهات ومهام",
+      "part2": "عملاء جاهزين"
+    },
+    "description": "تصلك فقط عندما يكون العميل جاهز للشراء"
+  }
+] 
