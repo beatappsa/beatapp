@@ -37,7 +37,7 @@ export function LanguageSwitcher() {
         variant="ghost"
         size="sm"
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-2"
+        className="flex items-center space-x-2 bg-white hover:bg-gray-100 text-gray-900"
       >
         <Globe className="h-4 w-4" />
         <span className="hidden sm:inline">{currentLanguage?.flag}</span>
