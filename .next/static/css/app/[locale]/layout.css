@@ -1186,6 +1186,10 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, label {
 .bg-gray-900\/95{
   background-color: rgb(17 24 39 / 0.95);
 }
+.bg-black{
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));
+}
 .bg-gradient-to-br{
   background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
 }
