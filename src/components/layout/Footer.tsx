@@ -110,11 +110,11 @@ export function Footer() {
 
         {/* Bottom */}
         <div className="mt-8 pt-8 border-t flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
-          <p className="text-sm text-muted-foreground flex items-center space-x-1">
+          <div className="text-sm text-muted-foreground flex items-center space-x-1">
             <span>© {currentYear} Blog.</span>
             <span>{t('copyright')}</span>
-          </p>
-          <p className="text-sm text-muted-foreground flex items-center space-x-1">
+          </div>
+          <div className="text-sm text-muted-foreground flex items-center space-x-1">
             <span>Made with</span>
             <motion.div
               animate={{ scale: [1, 1.2, 1] }}
@@ -123,7 +123,7 @@ export function Footer() {
               <Heart className="h-4 w-4 text-red-500 fill-current" />
             </motion.div>
             <span>using Next.js & WordPress</span>
-          </p>
+          </div>
         </div>
       </div>
     </footer>
