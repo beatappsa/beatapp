@@ -397,14 +397,30 @@ const ArabicLandingPage = () => {
                     }
                     
                     /* Target the form container inside iframe */
-                    .form-container,
-                    .form-wrapper,
-                    .leadconnector-form,
-                    [class*="form"],
-                    [class*="container"] {
-                      margin: 0 !important;
-                      padding: 0 !important;
-                    }
+                     .form-container,
+                     .form-wrapper,
+                     .leadconnector-form,
+                     [class*="form"],
+                     [class*="container"] {
+                       margin: 0 !important;
+                       padding: 0 !important;
+                     }
+                     
+                     /* Override specific form builder styles */
+                     #_builder-form .fields-container {
+                       padding: 0 !important;
+                       margin: 0 !important;
+                     }
+                     
+                     .hl-app .ghl-form-wrap {
+                       margin: 0 !important;
+                       padding: 0 !important;
+                     }
+                     
+                     .hl-app .hl_form-builder--main {
+                       margin: 0 !important;
+                       padding: 0 !important;
+                     }
                   `}</style>
                   <div className="bg-gray-50 rounded-2xl overflow-hidden p-0 m-0">
                     <iframe 
