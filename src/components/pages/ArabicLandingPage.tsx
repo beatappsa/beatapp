@@ -343,123 +343,167 @@ const ArabicLandingPage = () => {
       </section>
 
       {/* Contact Form Section */}
-      <section className="py-20 bg-gradient-to-b from-white to-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
+      <section className="py-24 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-20 right-20 w-72 h-72 bg-[#5546FB] rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 left-20 w-96 h-96 bg-blue-400 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Right Side - Form */}
             <div className="order-1 lg:order-2">
-              <div className="bg-white p-8 rounded-2xl shadow-lg">
-                <div className="text-center mb-8">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-4 font-sans">
+              <div className="bg-white p-10 rounded-3xl shadow-2xl border border-gray-100 relative">
+                {/* Decorative gradient border */}
+                <div className="absolute inset-0 bg-gradient-to-r from-[#5546FB] to-blue-500 rounded-3xl opacity-5"></div>
+                
+                <div className="text-center mb-10 relative z-10">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-[#5546FB] to-blue-500 rounded-2xl mb-6">
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  
+                  <h2 className="text-4xl font-bold text-gray-900 mb-6 font-sans leading-tight">
                     دعنا نساعدك بخطة
                     <br />
-                    أتمتة تناسبك
+                    <span className="bg-gradient-to-r from-[#5546FB] to-blue-500 bg-clip-text text-transparent">
+                      أتمتة تناسبك
+                    </span>
                   </h2>
-                  <p className="text-gray-600 font-sans">
+                  <p className="text-lg text-gray-600 font-sans leading-relaxed">
                     املأ بياناتك وسيتواصل معك فريقنا خلال 24 ساعة.
                   </p>
                 </div>
                 
                 {/* Embedded Form */}
-                <div className="w-full">
-                  <iframe 
-                    src="https://api.leadconnectorhq.com/widget/form/4SdywNF9Ialxauvu2v5t" 
-                    style={{width:'100%',height:'592px',border:'none',borderRadius:'4px'}} 
-                    id="inline-4SdywNF9Ialxauvu2v5t" 
-                    data-layout="{'id':'INLINE'}" 
-                    data-trigger-type="alwaysShow" 
-                    data-trigger-value="" 
-                    data-activation-type="alwaysActivated" 
-                    data-activation-value="" 
-                    data-deactivation-type="neverDeactivate" 
-                    data-deactivation-value="" 
-                    data-form-name="Marketing Form - Claim Offer" 
-                    data-height="592" 
-                    data-layout-iframe-id="inline-4SdywNF9Ialxauvu2v5t" 
-                    data-form-id="4SdywNF9Ialxauvu2v5t" 
-                    title="Marketing Form - Claim Offer"
-                  >
-                  </iframe>
+                <div className="w-full relative z-10">
+                  <div className="bg-gray-50 rounded-2xl p-1">
+                    <iframe 
+                      src="https://api.leadconnectorhq.com/widget/form/4SdywNF9Ialxauvu2v5t" 
+                      style={{width:'100%',height:'592px',border:'none',borderRadius:'12px'}} 
+                      id="inline-4SdywNF9Ialxauvu2v5t" 
+                      data-layout="{'id':'INLINE'}" 
+                      data-trigger-type="alwaysShow" 
+                      data-trigger-value="" 
+                      data-activation-type="alwaysActivated" 
+                      data-activation-value="" 
+                      data-deactivation-type="neverDeactivate" 
+                      data-deactivation-value="" 
+                      data-form-name="Marketing Form - Claim Offer" 
+                      data-height="592" 
+                      data-layout-iframe-id="inline-4SdywNF9Ialxauvu2v5t" 
+                      data-form-id="4SdywNF9Ialxauvu2v5t" 
+                      title="Marketing Form - Claim Offer"
+                      className="bg-white rounded-xl"
+                    >
+                    </iframe>
+                  </div>
                 </div>
                 
-                <p className="text-sm text-gray-500 text-center mt-4 font-sans">
-                  بياناتك آمنة ولن نشاركها مع أي طرف
-                </p>
+                <div className="flex items-center justify-center mt-6 relative z-10">
+                  <div className="flex items-center gap-2 text-sm text-gray-500">
+                    <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <span className="font-sans">بياناتك آمنة ولن نشاركها مع أي طرف</span>
+                  </div>
+                </div>
               </div>
             </div>
 
             {/* Left Side - Challenges */}
             <div className="order-2 lg:order-1">
               <div className="mb-12">
-                <h2 className="text-4xl font-bold text-gray-900 mb-8 font-sans">
-                  هل تواجه هذه
-                  <br />
-                  التحديات؟
-                </h2>
+                <div className="mb-8">
+                  <span className="inline-block px-4 py-2 bg-[#5546FB]/10 text-[#5546FB] rounded-full text-sm font-semibold mb-4 font-sans">
+                    التحديات الشائعة
+                  </span>
+                  <h2 className="text-5xl font-bold text-gray-900 mb-6 font-sans leading-tight">
+                    هل تواجه هذه
+                    <br />
+                    <span className="text-[#5546FB]">التحديات؟</span>
+                  </h2>
+                  <p className="text-xl text-gray-600 font-sans leading-relaxed">
+                    نحن نفهم التحديات التي تواجهها في إدارة عملك
+                  </p>
+                </div>
                 
-                <div className="space-y-8">
+                <div className="space-y-6">
                   {/* Challenge 1 */}
-                  <div className="flex items-start gap-4">
-                    <div className="w-16 h-16 bg-[#EBF5FB] rounded-full flex items-center justify-center flex-shrink-0">
-                      <svg className="w-8 h-8 text-[#5546FB]" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <div className="group flex items-start gap-6 p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#5546FB]/20">
+                    <div className="w-20 h-20 bg-gradient-to-br from-[#5546FB] to-blue-500 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                      <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                       </svg>
                     </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2 font-sans">
+                    <div className="flex-1">
+                      <h3 className="text-2xl font-bold text-gray-900 mb-3 font-sans group-hover:text-[#5546FB] transition-colors">
                         تفقد العملاء بعد
                         <br />
                         التواصل الأول؟
                       </h3>
+                      <p className="text-gray-600 font-sans leading-relaxed">
+                        نظام المتابعة الذكي يضمن عدم فقدان أي عميل محتمل
+                      </p>
                     </div>
                   </div>
 
                   {/* Challenge 2 */}
-                  <div className="flex items-start gap-4">
-                    <div className="w-16 h-16 bg-[#EBF5FB] rounded-full flex items-center justify-center flex-shrink-0">
-                      <svg className="w-8 h-8 text-[#5546FB]" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
+                  <div className="group flex items-start gap-6 p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#5546FB]/20">
+                    <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                      <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                       </svg>
                     </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2 font-sans">
+                    <div className="flex-1">
+                      <h3 className="text-2xl font-bold text-gray-900 mb-3 font-sans group-hover:text-purple-600 transition-colors">
                         عملاؤك يأتون...
                         <br />
                         لكن لا تتم الصفقات؟
                       </h3>
+                      <p className="text-gray-600 font-sans leading-relaxed">
+                        أدوات تحويل متقدمة تزيد معدل إتمام الصفقات
+                      </p>
                     </div>
                   </div>
 
                   {/* Challenge 3 */}
-                  <div className="flex items-start gap-4">
-                    <div className="w-16 h-16 bg-[#EBF5FB] rounded-full flex items-center justify-center flex-shrink-0">
-                      <svg className="w-8 h-8 text-[#5546FB]" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <div className="group flex items-start gap-6 p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#5546FB]/20">
+                    <div className="w-20 h-20 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                      <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
                     </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2 font-sans">
+                    <div className="flex-1">
+                      <h3 className="text-2xl font-bold text-gray-900 mb-3 font-sans group-hover:text-orange-600 transition-colors">
                         تضيع وقتك في الردود
                         <br />
                         والمتابعات؟
                       </h3>
+                      <p className="text-gray-600 font-sans leading-relaxed">
+                        أتمتة ذكية توفر 80% من وقت المتابعة اليدوية
+                      </p>
                     </div>
                   </div>
 
                   {/* Challenge 4 */}
-                  <div className="flex items-start gap-4">
-                    <div className="w-16 h-16 bg-[#EBF5FB] rounded-full flex items-center justify-center flex-shrink-0">
-                      <svg className="w-8 h-8 text-[#5546FB]" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
-                        <path fillRule="evenodd" d="M4 5a2 2 0 012-2v1a1 1 0 102 0V3a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 2a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clipRule="evenodd" />
+                  <div className="group flex items-start gap-6 p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#5546FB]/20">
+                    <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-teal-500 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                      <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                       </svg>
                     </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-2 font-sans">
+                    <div className="flex-1">
+                      <h3 className="text-2xl font-bold text-gray-900 mb-3 font-sans group-hover:text-green-600 transition-colors">
                         فريقك مشتت
                         <br />
                         والبيانات فوضوية
                       </h3>
+                      <p className="text-gray-600 font-sans leading-relaxed">
+                        منصة موحدة تجمع كل البيانات في مكان واحد
+                      </p>
                     </div>
                   </div>
                 </div>
