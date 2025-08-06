@@ -1,0 +1,56 @@
+{
+  "navigation": {
+    "home": "Accueil",
+    "blog": "Blog",
+    "about": "À propos",
+    "contact": "Contact",
+    "language": "Langue"
+  },
+  "common": {
+    "readMore": "Lire la suite",
+    "loading": "Chargement...",
+    "error": "Une erreur s'est produite",
+    "noResults": "Aucun résultat trouvé",
+    "search": "Rechercher",
+    "categories": "Catégories",
+    "tags": "Étiquettes",
+    "publishedOn": "Publié le",
+    "by": "par",
+    "minutes": "min de lecture"
+  },
+  "blog": {
+    "title": "Derniers Articles de Blog",
+    "subtitle": "Découvrez nos derniers articles et perspectives",
+    "featured": "Articles en Vedette",
+    "recent": "Articles Récents",
+    "relatedPosts": "Articles Connexes",
+    "sharePost": "Partager cet article",
+    "backToBlog": "Retour au Blog",
+    "searchPlaceholder": "Rechercher des articles...",
+    "allCategories": "Toutes les Catégories",
+    "allPosts": "Tous les Articles",
+    "noPosts": "Aucun article trouvé",
+    "noPostsDescription": "Nous n'avons trouvé aucun article correspondant à vos critères. Essayez d'ajuster votre recherche ou vos filtres.",
+    "minRead": "min de lecture",
+    "anonymous": "Anonyme",
+    "readMore": "Lire Plus",
+    "search": "Rechercher",
+    "categories": "Catégories",
+    "recentPosts": "Articles Récents",
+    "popularPosts": "Articles Populaires",
+    "tags": "Étiquettes",
+    "newsletter": {
+      "title": "Restez Informé",
+      "description": "Recevez les derniers articles directement dans votre boîte de réception.",
+      "emailPlaceholder": "Entrez votre email",
+      "subscribe": "S'abonner"
+    }
+  },
+  "footer": {
+    "copyright": "Tous droits réservés",
+    "followUs": "Suivez-nous",
+    "newsletter": "Abonnez-vous à notre newsletter",
+    "emailPlaceholder": "Entrez votre email",
+    "subscribe": "S'abonner"
+  }
+}

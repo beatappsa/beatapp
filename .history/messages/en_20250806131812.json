@@ -1,0 +1,37 @@
+{
+  "navigation": {
+    "home": "Home",
+    "blog": "Blog",
+    "about": "About",
+    "contact": "Contact",
+    "language": "Language"
+  },
+  "common": {
+    "readMore": "Read More",
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "noResults": "No results found",
+    "search": "Search",
+    "categories": "Categories",
+    "tags": "Tags",
+    "publishedOn": "Published on",
+    "by": "by",
+    "minutes": "min read"
+  },
+  "blog": {
+    "title": "Latest Blog Posts",
+    "subtitle": "Discover our latest articles and insights",
+    "featured": "Featured Posts",
+    "recent": "Recent Posts",
+    "relatedPosts": "Related Posts",
+    "sharePost": "Share this post",
+    "backToBlog": "Back to Blog"
+  },
+  "footer": {
+    "copyright": "All rights reserved",
+    "followUs": "Follow us",
+    "newsletter": "Subscribe to our newsletter",
+    "emailPlaceholder": "Enter your email",
+    "subscribe": "Subscribe"
+  }
+}

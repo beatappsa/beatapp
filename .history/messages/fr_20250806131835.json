@@ -1,0 +1,37 @@
+{
+  "navigation": {
+    "home": "Accueil",
+    "blog": "Blog",
+    "about": "À propos",
+    "contact": "Contact",
+    "language": "Langue"
+  },
+  "common": {
+    "readMore": "Lire la suite",
+    "loading": "Chargement...",
+    "error": "Une erreur s'est produite",
+    "noResults": "Aucun résultat trouvé",
+    "search": "Rechercher",
+    "categories": "Catégories",
+    "tags": "Étiquettes",
+    "publishedOn": "Publié le",
+    "by": "par",
+    "minutes": "min de lecture"
+  },
+  "blog": {
+    "title": "Derniers articles du blog",
+    "subtitle": "Découvrez nos derniers articles et insights",
+    "featured": "Articles en vedette",
+    "recent": "Articles récents",
+    "relatedPosts": "Articles connexes",
+    "sharePost": "Partager cet article",
+    "backToBlog": "Retour au blog"
+  },
+  "footer": {
+    "copyright": "Tous droits réservés",
+    "followUs": "Suivez-nous",
+    "newsletter": "Abonnez-vous à notre newsletter",
+    "emailPlaceholder": "Entrez votre email",
+    "subscribe": "S'abonner"
+  }
+}
