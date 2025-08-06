@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Header } from '@/components/layout/Header';
@@ -8,6 +8,22 @@ import { Play } from 'lucide-react';
 
 const ArabicLandingPage = () => {
   const t = useTranslations();
+
+  useEffect(() => {
+    // Load the form embed script
+    const script = document.createElement('script');
+    script.src = 'https://link.msgsndr.com/js/form_embed.js';
+    script.async = true;
+    document.head.appendChild(script);
+
+    return () => {
+      // Cleanup script on component unmount
+      const existingScript = document.querySelector('script[src="https://link.msgsndr.com/js/form_embed.js"]');
+      if (existingScript) {
+        document.head.removeChild(existingScript);
+      }
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#EBF5FB] to-white font-sans" dir="rtl">
@@ -326,8 +342,135 @@ const ArabicLandingPage = () => {
         </div>
       </section>
 
+      {/* Contact Form Section */}
+      <section className="py-20 bg-gradient-to-b from-white to-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            {/* Right Side - Form */}
+            <div className="order-1 lg:order-2">
+              <div className="bg-white p-8 rounded-2xl shadow-lg">
+                <div className="text-center mb-8">
+                  <h2 className="text-3xl font-bold text-gray-900 mb-4 font-sans">
+                    دعنا نساعدك بخطة
+                    <br />
+                    أتمتة تناسبك
+                  </h2>
+                  <p className="text-gray-600 font-sans">
+                    املأ بياناتك وسيتواصل معك فريقنا خلال 24 ساعة.
+                  </p>
+                </div>
+                
+                {/* Embedded Form */}
+                <div className="w-full">
+                  <iframe 
+                    src="https://api.leadconnectorhq.com/widget/form/4SdywNF9Ialxauvu2v5t" 
+                    style={{width:'100%',height:'592px',border:'none',borderRadius:'4px'}} 
+                    id="inline-4SdywNF9Ialxauvu2v5t" 
+                    data-layout="{'id':'INLINE'}" 
+                    data-trigger-type="alwaysShow" 
+                    data-trigger-value="" 
+                    data-activation-type="alwaysActivated" 
+                    data-activation-value="" 
+                    data-deactivation-type="neverDeactivate" 
+                    data-deactivation-value="" 
+                    data-form-name="Marketing Form - Claim Offer" 
+                    data-height="592" 
+                    data-layout-iframe-id="inline-4SdywNF9Ialxauvu2v5t" 
+                    data-form-id="4SdywNF9Ialxauvu2v5t" 
+                    title="Marketing Form - Claim Offer"
+                  >
+                  </iframe>
+                </div>
+                
+                <p className="text-sm text-gray-500 text-center mt-4 font-sans">
+                  بياناتك آمنة ولن نشاركها مع أي طرف
+                </p>
+              </div>
+            </div>
+
+            {/* Left Side - Challenges */}
+            <div className="order-2 lg:order-1">
+              <div className="mb-12">
+                <h2 className="text-4xl font-bold text-gray-900 mb-8 font-sans">
+                  هل تواجه هذه
+                  <br />
+                  التحديات؟
+                </h2>
+                
+                <div className="space-y-8">
+                  {/* Challenge 1 */}
+                  <div className="flex items-start gap-4">
+                    <div className="w-16 h-16 bg-[#EBF5FB] rounded-full flex items-center justify-center flex-shrink-0">
+                      <svg className="w-8 h-8 text-[#5546FB]" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900 mb-2 font-sans">
+                        تفقد العملاء بعد
+                        <br />
+                        التواصل الأول؟
+                      </h3>
+                    </div>
+                  </div>
+
+                  {/* Challenge 2 */}
+                  <div className="flex items-start gap-4">
+                    <div className="w-16 h-16 bg-[#EBF5FB] rounded-full flex items-center justify-center flex-shrink-0">
+                      <svg className="w-8 h-8 text-[#5546FB]" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900 mb-2 font-sans">
+                        عملاؤك يأتون...
+                        <br />
+                        لكن لا تتم الصفقات؟
+                      </h3>
+                    </div>
+                  </div>
+
+                  {/* Challenge 3 */}
+                  <div className="flex items-start gap-4">
+                    <div className="w-16 h-16 bg-[#EBF5FB] rounded-full flex items-center justify-center flex-shrink-0">
+                      <svg className="w-8 h-8 text-[#5546FB]" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900 mb-2 font-sans">
+                        تضيع وقتك في الردود
+                        <br />
+                        والمتابعات؟
+                      </h3>
+                    </div>
+                  </div>
+
+                  {/* Challenge 4 */}
+                  <div className="flex items-start gap-4">
+                    <div className="w-16 h-16 bg-[#EBF5FB] rounded-full flex items-center justify-center flex-shrink-0">
+                      <svg className="w-8 h-8 text-[#5546FB]" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
+                        <path fillRule="evenodd" d="M4 5a2 2 0 012-2v1a1 1 0 102 0V3a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 2a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900 mb-2 font-sans">
+                        فريقك مشتت
+                        <br />
+                        والبيانات فوضوية
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      <footer className="bg-gray-900 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8">
             <div>

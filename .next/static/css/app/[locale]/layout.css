@@ -656,6 +656,12 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, label {
 .z-50{
   z-index: 50;
 }
+.order-1{
+  order: 1;
+}
+.order-2{
+  order: 2;
+}
 .mx-4{
   margin-left: 1rem;
   margin-right: 1rem;
@@ -922,6 +928,9 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, label {
 }
 .flex-wrap{
   flex-wrap: wrap;
+}
+.items-start{
+  align-items: flex-start;
 }
 .items-center{
   align-items: center;
@@ -1215,6 +1224,11 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, label {
   --tw-gradient-to: hsl(var(--primary) / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
+.from-white{
+  --tw-gradient-from: #fff var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(255 255 255 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
 .via-accent\/80{
   --tw-gradient-to: hsl(var(--accent) / 0)  var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), hsl(var(--accent) / 0.8) var(--tw-gradient-via-position), var(--tw-gradient-to);
@@ -1247,6 +1261,9 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, label {
 }
 .to-white{
   --tw-gradient-to: #fff var(--tw-gradient-to-position);
+}
+.to-gray-50{
+  --tw-gradient-to: #f9fafb var(--tw-gradient-to-position);
 }
 .bg-clip-text{
   -webkit-background-clip: text;
@@ -1883,6 +1900,14 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, label {
   }
 }
 @media (min-width: 1024px){
+
+  .lg\:order-1{
+    order: 1;
+  }
+
+  .lg\:order-2{
+    order: 2;
+  }
 
   .lg\:col-span-1{
     grid-column: span 1 / span 1;
