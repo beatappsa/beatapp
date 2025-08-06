@@ -167,3 +167,8 @@ export default function BlogPage({ params, searchParams }: BlogPageProps) {
     </div>
   );
 }
+
+export const metadata = {
+  title: 'Blog - Multilingual Blog Platform',
+  description: 'Explore our latest articles, tutorials, and insights on web development, design, and technology.',
+};
