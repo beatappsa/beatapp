@@ -16,61 +16,59 @@ const ArabicLandingPage = () => {
     script.async = true;
     document.head.appendChild(script);
 
-    // Function to inject CSS into iframe
-    const injectIframeCSS = () => {
+    // Function to handle iframe styling via URL parameters and postMessage
+    const handleIframeCustomization = () => {
       const iframe = document.getElementById('inline-4SdywNF9Ialxauvu2v5t') as HTMLIFrameElement;
-      if (iframe && iframe.contentDocument) {
+      if (iframe) {
+        // Try to communicate with iframe via postMessage
         try {
-          const iframeDoc = iframe.contentDocument;
-          const style = iframeDoc.createElement('style');
-          style.textContent = `
-            * {
-              margin: 0 !important;
-              padding: 0 !important;
-              box-sizing: border-box !important;
+          iframe.contentWindow?.postMessage({
+            type: 'APPLY_CUSTOM_STYLES',
+            styles: {
+              margin: '0',
+              padding: '0',
+              boxSizing: 'border-box'
             }
-            html, body {
-              margin: 0 !important;
-              padding: 0 !important;
-              overflow: hidden !important;
-            }
-            .container, .wrapper, .form-container, .form-wrapper,
-            .content, .main, .section, .row, .col, .field,
-            .form-content, .form-body, .form-section, .form-group,
-            .form-row, .form-col, .form-field, .form-element,
-            .form-input, .form-button, .form-header, .form-footer,
-            [class*="form"], [class*="container"], [class*="wrapper"],
-            [class*="content"], [class*="main"], [class*="section"],
-            [class*="row"], [class*="col"], [class*="field"],
-            [class*="input"], [class*="button"], [class*="header"],
-            [class*="footer"], [class*="body"], [class*="element"],
-            [class*="group"], [id*="form"], [id*="container"],
-            [id*="wrapper"], [id*="content"], [id*="main"],
-            [id*="section"], [id*="row"], [id*="col"],
-            [id*="field"], [id*="input"], [id*="button"],
-            [id*="header"], [id*="footer"], [id*="body"],
-            [id*="element"], [id*="group"], [id*="builder"] {
-              margin: 0 !important;
-              padding: 0 !important;
-              box-sizing: border-box !important;
-            }
-          `;
-          iframeDoc.head.appendChild(style);
+          }, '*');
         } catch (e) {
-          console.log('Cannot access iframe content due to cross-origin restrictions');
+          console.log('PostMessage failed:', e);
+        }
+
+        // Apply aggressive container styling
+        iframe.style.cssText = `
+          width: 100% !important;
+          height: 592px !important;
+          border: none !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          display: block !important;
+          border-radius: 12px !important;
+          overflow: hidden !important;
+          transform: scale(1.02) !important;
+          transform-origin: top left !important;
+        `;
+
+        // Try to modify the iframe src to include custom parameters
+        const currentSrc = iframe.src;
+        if (!currentSrc.includes('custom_styles=true')) {
+          const separator = currentSrc.includes('?') ? '&' : '?';
+          iframe.src = `${currentSrc}${separator}custom_styles=true&margin=0&padding=0`;
         }
       }
     };
 
-    // Try to inject CSS after iframe loads
+    // Monitor iframe and apply customizations
     const checkIframe = setInterval(() => {
       const iframe = document.getElementById('inline-4SdywNF9Ialxauvu2v5t') as HTMLIFrameElement;
       if (iframe) {
         iframe.onload = () => {
-          setTimeout(injectIframeCSS, 100);
-          setTimeout(injectIframeCSS, 500);
-          setTimeout(injectIframeCSS, 1000);
+          setTimeout(handleIframeCustomization, 100);
+          setTimeout(handleIframeCustomization, 500);
+          setTimeout(handleIframeCustomization, 1000);
+          setTimeout(handleIframeCustomization, 2000);
         };
+        // Apply initial customization
+        handleIframeCustomization();
         clearInterval(checkIframe);
       }
     }, 100);
@@ -629,6 +627,25 @@ const ArabicLandingPage = () => {
                       box-sizing: border-box !important;
                     }
                     
+                    /* Aggressive iframe styling */
+                    iframe[data-form-id="4SdywNF9Ialxauvu2v5t"] {
+                      width: calc(100% + 40px) !important;
+                      height: calc(592px + 40px) !important;
+                      border: none !important;
+                      border-radius: 12px !important;
+                      margin: -20px !important;
+                      padding: 0 !important;
+                      display: block !important;
+                      position: absolute !important;
+                      top: 0 !important;
+                      left: 0 !important;
+                      transform: scale(1.0) !important;
+                      transform-origin: top left !important;
+                      overflow: hidden !important;
+                      background: white !important;
+                      box-sizing: border-box !important;
+                    }
+                    
                     /* Additional CSS injection for iframe content */
                     iframe[data-form-id="4SdywNF9Ialxauvu2v5t"]::after {
                       content: '';
@@ -640,17 +657,35 @@ const ArabicLandingPage = () => {
                       pointer-events: none;
                     }
                   `}</style>
-                  <div className="bg-gray-50 rounded-2xl overflow-hidden" style={{margin: 0, padding: 0}}>
+                  <div 
+                    className="overflow-hidden" 
+                    style={{
+                      margin: '0 !important', 
+                      padding: '0 !important',
+                      background: 'transparent',
+                      borderRadius: '12px',
+                      position: 'relative',
+                      width: '100%',
+                      height: '592px'
+                    }}
+                  >
                     <iframe 
                       src="https://api.leadconnectorhq.com/widget/form/4SdywNF9Ialxauvu2v5t" 
                       style={{
-                        width:'100%',
-                        height:'592px',
-                        border:'none',
-                        borderRadius:'12px',
-                        margin: '0',
+                        width: 'calc(100% + 40px)',
+                        height: 'calc(592px + 40px)',
+                        border: 'none',
+                        borderRadius: '12px',
+                        margin: '-20px',
                         padding: '0',
-                        display: 'block'
+                        display: 'block',
+                        position: 'absolute',
+                        top: '0',
+                        left: '0',
+                        transform: 'scale(1.0)',
+                        transformOrigin: 'top left',
+                        overflow: 'hidden',
+                        background: 'white'
                       }} 
                       id="inline-4SdywNF9Ialxauvu2v5t" 
                       data-layout="{'id':'INLINE'}" 
@@ -665,7 +700,7 @@ const ArabicLandingPage = () => {
                       data-layout-iframe-id="inline-4SdywNF9Ialxauvu2v5t" 
                       data-form-id="4SdywNF9Ialxauvu2v5t" 
                       title="Marketing Form - Claim Offer"
-                      className="bg-white rounded-xl block"
+                      className=""
                     >
                     </iframe>
                   </div>
