@@ -1072,6 +1072,10 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, label {
 .border-white\/20{
   border-color: rgb(255 255 255 / 0.2);
 }
+.border-gray-200{
+  --tw-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-border-opacity, 1));
+}
 .border-t-transparent{
   border-top-color: transparent;
 }

@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Header } from '@/components/layout/Header';
+import { Play } from 'lucide-react';
 
 const ArabicLandingPage = () => {
   const t = useTranslations();
@@ -33,9 +34,6 @@ const ArabicLandingPage = () => {
                 <button className="bg-[#5546FB] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#322A95] transition-colors font-sans">
                   احجز استشارتك المجانية الآن
                 </button>
-                <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-full font-semibold hover:border-[#5546FB] hover:text-[#5546FB] transition-colors font-sans">
-                  تعرف أكثر
-                </button>
               </div>
             </div>
 
@@ -49,6 +47,14 @@ const ArabicLandingPage = () => {
                 className="max-w-full h-auto"
               />
             </div>
+          </div>
+          
+          {/* Video Button at Bottom Center */}
+          <div className="flex justify-center mt-16">
+            <button className="flex items-center gap-3 bg-white text-[#5546FB] px-8 py-4 rounded-full font-semibold hover:bg-gray-50 transition-colors shadow-lg border border-gray-200 font-sans">
+              <Play className="w-5 h-5 fill-current" />
+              شاهد كيف يعمل BeatApp في دقائق
+            </button>
           </div>
         </div>
       </section>
