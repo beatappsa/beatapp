@@ -109,3 +109,11 @@
     transform: translateY(0);
   }
 }
+
+/* Mobile container padding optimization */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 0.5rem;
+    padding-right: 2rem;
+  }
+}
