@@ -3,56 +3,13 @@
 import React from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
+import { Header } from '@/components/layout/Header';
 
 const ArabicLandingPage = () => {
   const t = useTranslations();
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#EBF5FB] to-white font-sans" dir="rtl">
-      {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            {/* Logo */}
-            <div className="flex items-center">
-              <Image
-                src="/images/logo.svg"
-                alt="BeatApp Logo"
-                width={191}
-                height={49}
-                className="h-12 w-auto"
-              />
-            </div>
-
-            {/* Navigation */}
-            <nav className="hidden md:flex space-x-8 space-x-reverse">
-              <a href="#home" className="text-gray-900 font-medium hover:text-[#5546FB] transition-colors">
-                الصفحة الرئيسية
-              </a>
-              <a href="#features" className="text-gray-600 hover:text-[#5546FB] transition-colors">
-                المزايا
-              </a>
-              <a href="#challenges" className="text-gray-600 hover:text-[#5546FB] transition-colors">
-                هل تواجه هذه التحديات؟
-              </a>
-              <a href="#why-us" className="text-gray-900 font-medium hover:text-[#5546FB] transition-colors">
-                لماذا نحن؟
-              </a>
-            </nav>
-
-            {/* Language Toggle */}
-            <div className="flex items-center space-x-2 space-x-reverse">
-              <Image
-                src="/images/language-icon.svg"
-                alt="Language"
-                width={20}
-                height={20}
-              />
-              <span className="bg-[#5546FB] text-white px-3 py-1 rounded-full text-sm font-medium">English</span>
-            </div>
-          </div>
-        </div>
-      </header>
 
       {/* Hero Section */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8">
@@ -74,7 +31,7 @@ const ArabicLandingPage = () => {
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <button className="bg-[#5546FB] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#322A95] transition-colors font-sans">
-                  جاهز تبدأ؟
+                  احجز استشارتك المجانية الآن
                 </button>
                 <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-full font-semibold hover:border-[#5546FB] hover:text-[#5546FB] transition-colors font-sans">
                   تعرف أكثر
@@ -85,7 +42,7 @@ const ArabicLandingPage = () => {
             {/* Hero Illustration */}
             <div className="flex justify-center lg:justify-end">
               <Image
-                src="/images/hero-illustration.svg"
+                src="/images/elements/01.png"
                 alt="BeatApp Dashboard"
                 width={544}
                 height={608}
@@ -354,10 +311,10 @@ const ArabicLandingPage = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
             <button className="bg-white text-[#5546FB] px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors font-sans">
-              ابدأ تجربتك المجانية
+              احجز استشارتك المجانية الآن
             </button>
             <button className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-[#5546FB] transition-colors font-sans">
-              تحدث مع فريق المبيعات
+              احجز استشارتك المجانية الآن
             </button>
           </div>
         </div>

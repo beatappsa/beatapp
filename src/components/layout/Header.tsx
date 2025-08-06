@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useTranslations, useLocale } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Globe } from 'lucide-react';
@@ -14,10 +15,10 @@ export function Header() {
   const locale = useLocale();
 
   const navigation = [
-    { name: t('home'), href: `/${locale}` },
-    { name: t('blog'), href: `/${locale}/blog` },
-    { name: t('about'), href: `/${locale}/about` },
-    { name: t('contact'), href: `/${locale}/contact` },
+    { name: 'الصفحة الرئيسية', href: '#home' },
+    { name: 'المزايا', href: '#features' },
+    { name: 'هل تواجه هذه التحديات؟', href: '#challenges' },
+    { name: 'لماذا نحن؟', href: '#why-us' },
   ];
 
   return (
@@ -28,9 +29,15 @@ export function Header() {
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="text-2xl font-bold text-primary font-sans"
+            className="flex items-center"
           >
-            Blog
+            <Image
+              src="/images/logo.svg"
+              alt="BeatApp Logo"
+              width={120}
+              height={40}
+              className="h-10 w-auto"
+            />
           </motion.div>
         </Link>
 
