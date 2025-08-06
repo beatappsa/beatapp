@@ -16,12 +16,72 @@ const ArabicLandingPage = () => {
     script.async = true;
     document.head.appendChild(script);
 
+    // Function to inject CSS into iframe
+    const injectIframeCSS = () => {
+      const iframe = document.getElementById('inline-4SdywNF9Ialxauvu2v5t') as HTMLIFrameElement;
+      if (iframe && iframe.contentDocument) {
+        try {
+          const iframeDoc = iframe.contentDocument;
+          const style = iframeDoc.createElement('style');
+          style.textContent = `
+            * {
+              margin: 0 !important;
+              padding: 0 !important;
+              box-sizing: border-box !important;
+            }
+            html, body {
+              margin: 0 !important;
+              padding: 0 !important;
+              overflow: hidden !important;
+            }
+            .container, .wrapper, .form-container, .form-wrapper,
+            .content, .main, .section, .row, .col, .field,
+            .form-content, .form-body, .form-section, .form-group,
+            .form-row, .form-col, .form-field, .form-element,
+            .form-input, .form-button, .form-header, .form-footer,
+            [class*="form"], [class*="container"], [class*="wrapper"],
+            [class*="content"], [class*="main"], [class*="section"],
+            [class*="row"], [class*="col"], [class*="field"],
+            [class*="input"], [class*="button"], [class*="header"],
+            [class*="footer"], [class*="body"], [class*="element"],
+            [class*="group"], [id*="form"], [id*="container"],
+            [id*="wrapper"], [id*="content"], [id*="main"],
+            [id*="section"], [id*="row"], [id*="col"],
+            [id*="field"], [id*="input"], [id*="button"],
+            [id*="header"], [id*="footer"], [id*="body"],
+            [id*="element"], [id*="group"], [id*="builder"] {
+              margin: 0 !important;
+              padding: 0 !important;
+              box-sizing: border-box !important;
+            }
+          `;
+          iframeDoc.head.appendChild(style);
+        } catch (e) {
+          console.log('Cannot access iframe content due to cross-origin restrictions');
+        }
+      }
+    };
+
+    // Try to inject CSS after iframe loads
+    const checkIframe = setInterval(() => {
+      const iframe = document.getElementById('inline-4SdywNF9Ialxauvu2v5t') as HTMLIFrameElement;
+      if (iframe) {
+        iframe.onload = () => {
+          setTimeout(injectIframeCSS, 100);
+          setTimeout(injectIframeCSS, 500);
+          setTimeout(injectIframeCSS, 1000);
+        };
+        clearInterval(checkIframe);
+      }
+    }, 100);
+
     return () => {
       // Cleanup script on component unmount
       const existingScript = document.querySelector('script[src="https://link.msgsndr.com/js/form_embed.js"]');
       if (existingScript) {
         document.head.removeChild(existingScript);
       }
+      clearInterval(checkIframe);
     };
   }, []);
 
@@ -394,7 +454,7 @@ const ArabicLandingPage = () => {
                       box-sizing: border-box !important;
                     }
                     
-                    /* Aggressive form builder overrides */
+                    /* Ultra-aggressive form builder overrides - target everything */
                     #_builder-form,
                     #_builder-form *,
                     #_builder-form .fields-container,
@@ -413,22 +473,140 @@ const ArabicLandingPage = () => {
                     .form-container *,
                     .form-wrapper,
                     .form-wrapper *,
+                    .form-content,
+                    .form-content *,
+                    .form-body,
+                    .form-body *,
+                    .form-section,
+                    .form-section *,
+                    .form-group,
+                    .form-group *,
+                    .form-row,
+                    .form-row *,
+                    .form-col,
+                    .form-col *,
+                    .form-field,
+                    .form-field *,
+                    .form-element,
+                    .form-element *,
+                    .form-input,
+                    .form-input *,
+                    .form-button,
+                    .form-button *,
+                    .form-header,
+                    .form-header *,
+                    .form-footer,
+                    .form-footer *,
+                    .container,
+                    .container *,
+                    .wrapper,
+                    .wrapper *,
+                    .content,
+                    .content *,
+                    .main,
+                    .main *,
+                    .section,
+                    .section *,
+                    .row,
+                    .row *,
+                    .col,
+                    .col *,
+                    .field,
+                    .field *,
+                    .input,
+                    .input *,
+                    .button,
+                    .button *,
+                    .header,
+                    .header *,
+                    .footer,
+                    .footer *,
                     [class*="form"],
                     [class*="form"] *,
                     [class*="container"],
                     [class*="container"] *,
+                    [class*="wrapper"],
+                    [class*="wrapper"] *,
+                    [class*="content"],
+                    [class*="content"] *,
+                    [class*="main"],
+                    [class*="main"] *,
+                    [class*="section"],
+                    [class*="section"] *,
+                    [class*="row"],
+                    [class*="row"] *,
+                    [class*="col"],
+                    [class*="col"] *,
                     [class*="field"],
                     [class*="field"] *,
                     [class*="input"],
                     [class*="input"] *,
                     [class*="button"],
                     [class*="button"] *,
+                    [class*="header"],
+                    [class*="header"] *,
+                    [class*="footer"],
+                    [class*="footer"] *,
+                    [class*="body"],
+                    [class*="body"] *,
+                    [class*="element"],
+                    [class*="element"] *,
+                    [class*="group"],
+                    [class*="group"] *,
                     [id*="form"],
                     [id*="form"] *,
+                    [id*="container"],
+                    [id*="container"] *,
+                    [id*="wrapper"],
+                    [id*="wrapper"] *,
+                    [id*="content"],
+                    [id*="content"] *,
+                    [id*="main"],
+                    [id*="main"] *,
+                    [id*="section"],
+                    [id*="section"] *,
+                    [id*="row"],
+                    [id*="row"] *,
+                    [id*="col"],
+                    [id*="col"] *,
                     [id*="field"],
                     [id*="field"] *,
+                    [id*="input"],
+                    [id*="input"] *,
+                    [id*="button"],
+                    [id*="button"] *,
+                    [id*="header"],
+                    [id*="header"] *,
+                    [id*="footer"],
+                    [id*="footer"] *,
+                    [id*="body"],
+                    [id*="body"] *,
+                    [id*="element"],
+                    [id*="element"] *,
+                    [id*="group"],
+                    [id*="group"] *,
                     [id*="builder"],
-                    [id*="builder"] * {
+                    [id*="builder"] *,
+                    div,
+                    div *,
+                    span,
+                    span *,
+                    p,
+                    p *,
+                    h1, h2, h3, h4, h5, h6,
+                    h1 *, h2 *, h3 *, h4 *, h5 *, h6 *,
+                    ul, ol, li,
+                    ul *, ol *, li *,
+                    table, tr, td, th,
+                    table *, tr *, td *, th *,
+                    input, textarea, select, button,
+                    input *, textarea *, select *, button *,
+                    label, legend, fieldset,
+                    label *, legend *, fieldset *,
+                    article, section, nav, aside,
+                    article *, section *, nav *, aside *,
+                    header, footer, main,
+                    header *, footer *, main * {
                       margin: 0 !important;
                       padding: 0 !important;
                       box-sizing: border-box !important;
@@ -450,8 +628,19 @@ const ArabicLandingPage = () => {
                       padding: 0 !important;
                       box-sizing: border-box !important;
                     }
+                    
+                    /* Additional CSS injection for iframe content */
+                    iframe[data-form-id="4SdywNF9Ialxauvu2v5t"]::after {
+                      content: '';
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      right: 0;
+                      bottom: 0;
+                      pointer-events: none;
+                    }
                   `}</style>
-                  <div className="bg-gray-50 rounded-2xl overflow-hidden p-0 m-0">
+                  <div className="bg-gray-50 rounded-2xl overflow-hidden" style={{margin: 0, padding: 0}}>
                     <iframe 
                       src="https://api.leadconnectorhq.com/widget/form/4SdywNF9Ialxauvu2v5t" 
                       style={{
