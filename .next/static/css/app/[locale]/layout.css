@@ -670,6 +670,10 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, label {
   margin-left: 2.5rem;
   margin-right: 2.5rem;
 }
+.mx-4{
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
 .mb-12{
   margin-bottom: 3rem;
 }
@@ -1924,8 +1928,17 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, label {
     grid-column: span 2 / span 2;
   }
 
+  .md\:mx-10{
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+  }
+
   .md\:mt-0{
     margin-top: 0px;
+  }
+
+  .md\:mt-10{
+    margin-top: 2.5rem;
   }
 
   .md\:inline{
