@@ -4,8 +4,8 @@ import { useTranslations, useLocale } from 'next-intl';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Github, Twitter, Linkedin, Mail, Heart } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import { Button } from '../ui/button';
+import { Input } from '../ui/input';
 import { useState } from 'react';
 
 export function Footer() {
@@ -98,7 +98,7 @@ export function Footer() {
                 type="email"
                 placeholder={t('emailPlaceholder')}
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
                 required
               />
               <Button type="submit" size="sm" className="w-full">
