@@ -379,10 +379,45 @@ const ArabicLandingPage = () => {
                 
                 {/* Embedded Form */}
                 <div className="w-full relative z-10">
-                  <div className="bg-gray-50 rounded-2xl p-1">
+                  <style jsx global>{`
+                    #inline-4SdywNF9Ialxauvu2v5t {
+                      margin: 0 !important;
+                      padding: 0 !important;
+                    }
+                    
+                    /* Override form content padding/margins */
+                    iframe[data-form-id="4SdywNF9Ialxauvu2v5t"] {
+                      margin: 0 !important;
+                      padding: 0 !important;
+                    }
+                    
+                    /* Override any internal form styling */
+                    iframe[data-form-id="4SdywNF9Ialxauvu2v5t"] * {
+                      box-sizing: border-box !important;
+                    }
+                    
+                    /* Target the form container inside iframe */
+                    .form-container,
+                    .form-wrapper,
+                    .leadconnector-form,
+                    [class*="form"],
+                    [class*="container"] {
+                      margin: 0 !important;
+                      padding: 0 !important;
+                    }
+                  `}</style>
+                  <div className="bg-gray-50 rounded-2xl overflow-hidden p-0 m-0">
                     <iframe 
                       src="https://api.leadconnectorhq.com/widget/form/4SdywNF9Ialxauvu2v5t" 
-                      style={{width:'100%',height:'592px',border:'none',borderRadius:'12px'}} 
+                      style={{
+                        width:'100%',
+                        height:'592px',
+                        border:'none',
+                        borderRadius:'12px',
+                        margin: '0',
+                        padding: '0',
+                        display: 'block'
+                      }} 
                       id="inline-4SdywNF9Ialxauvu2v5t" 
                       data-layout="{'id':'INLINE'}" 
                       data-trigger-type="alwaysShow" 
@@ -396,7 +431,7 @@ const ArabicLandingPage = () => {
                       data-layout-iframe-id="inline-4SdywNF9Ialxauvu2v5t" 
                       data-form-id="4SdywNF9Ialxauvu2v5t" 
                       title="Marketing Form - Claim Offer"
-                      className="bg-white rounded-xl"
+                      className="bg-white rounded-xl block"
                     >
                     </iframe>
                   </div>

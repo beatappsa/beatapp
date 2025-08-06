@@ -665,6 +665,9 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, label {
 .order-2{
   order: 2;
 }
+.m-0{
+  margin: 0px;
+}
 .mx-4{
   margin-left: 1rem;
   margin-right: 1rem;
