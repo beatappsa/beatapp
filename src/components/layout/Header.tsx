@@ -22,7 +22,7 @@ export function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b bg-gray-900/95 backdrop-blur supports-[backdrop-filter]:bg-gray-900/60">
       <div className="container flex h-16 items-center justify-between">
         {/* Logo */}
         <Link href={`/${locale}`} className="flex items-center space-x-2">
@@ -47,7 +47,7 @@ export function Header() {
             <Link
               key={item.name}
               href={item.href}
-              className="text-sm font-medium transition-colors hover:text-primary font-sans"
+              className="text-sm font-medium text-white transition-colors hover:text-blue-400 font-sans"
             >
               <motion.span
                 whileHover={{ y: -2 }}
@@ -74,7 +74,7 @@ export function Header() {
               animate={{ rotate: isMenuOpen ? 180 : 0 }}
               transition={{ duration: 0.2 }}
             >
-              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {isMenuOpen ? <X className="h-5 w-5 text-white" /> : <Menu className="h-5 w-5 text-white" />}
             </motion.div>
           </Button>
         </div>
@@ -88,7 +88,7 @@ export function Header() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden border-t bg-background"
+            className="md:hidden border-t bg-gray-900"
           >
             <nav className="container py-4 space-y-2">
               {navigation.map((item, index) => (
@@ -100,7 +100,7 @@ export function Header() {
                 >
                   <Link
                     href={item.href}
-                    className="block py-2 text-sm font-medium transition-colors hover:text-primary"
+                    className="block py-2 text-sm font-medium text-white transition-colors hover:text-blue-400"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.name}
