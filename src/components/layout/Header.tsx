@@ -22,7 +22,8 @@ export function Header() {
   ];
 
   return (
-    <header className="w-full border-b bg-black">
+    <header className="w-full">
+      <div className="mx-10 max-w-[1280px] xl:mx-auto bg-black border-b rounded-lg">
       <div className="container flex h-16 items-center justify-between">
         {/* Logo */}
         <Link href={`/${locale}`} className="flex items-center space-x-2">
@@ -109,8 +110,8 @@ export function Header() {
               ))}
             </nav>
           </motion.div>
-        )}
-      </AnimatePresence>
+        )}      </AnimatePresence>
+      </div>
     </header>
   );
 }

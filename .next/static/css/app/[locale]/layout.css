@@ -666,6 +666,10 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, label {
   margin-left: auto;
   margin-right: auto;
 }
+.mx-10{
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+}
 .mb-12{
   margin-bottom: 3rem;
 }
@@ -878,6 +882,9 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, label {
 }
 .max-w-full{
   max-width: 100%;
+}
+.max-w-\[1280px\]{
+  max-width: 1280px;
 }
 .flex-1{
   flex: 1 1 0%;
@@ -2028,5 +2035,13 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, label {
   .lg\:text-6xl{
     font-size: 3.75rem;
     line-height: 1;
+  }
+}
+
+@media (min-width: 1280px){
+
+  .xl\:mx-auto{
+    margin-left: auto;
+    margin-right: auto;
   }
 }
