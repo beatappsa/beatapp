@@ -85,7 +85,7 @@ export function HeroSection() {
           {/* Main Heading */}
           <motion.h1
             variants={itemVariants}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6"
+            className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 font-sans"
           >
             <span className="bg-gradient-to-r from-primary via-primary/80 to-accent bg-clip-text text-transparent">
               Modern
@@ -148,10 +148,10 @@ export function HeroSection() {
                 whileHover={{ scale: 1.05 }}
                 className="text-center"
               >
-                <div className="text-2xl md:text-3xl font-bold text-primary">
+                <div className="text-2xl md:text-3xl font-bold text-primary font-sans">
                   {stat.value}
                 </div>
-                <div className="text-sm text-muted-foreground">
+                <div className="text-sm text-muted-foreground font-sans">
                   {stat.label}
                 </div>
               </motion.div>

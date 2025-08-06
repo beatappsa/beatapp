@@ -28,7 +28,7 @@ export function Header() {
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="text-2xl font-bold text-primary"
+            className="text-2xl font-bold text-primary font-sans"
           >
             Blog
           </motion.div>
@@ -40,7 +40,7 @@ export function Header() {
             <Link
               key={item.name}
               href={item.href}
-              className="text-sm font-medium transition-colors hover:text-primary"
+              className="text-sm font-medium transition-colors hover:text-primary font-sans"
             >
               <motion.span
                 whileHover={{ y: -2 }}

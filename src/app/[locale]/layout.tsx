@@ -1,14 +1,11 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { Inter } from 'next/font/google';
 import { locales } from '@/i18n';
 import '../globals.css';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { ApolloWrapper } from '@/components/providers/ApolloWrapper';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -32,7 +29,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'}>
-      <body className={inter.className}>
+      <body className="font-sans">
         <NextIntlClientProvider messages={messages}>
           <ApolloWrapper>
             <div className="min-h-screen flex flex-col">
