@@ -721,6 +721,9 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, label {
 .mt-4{
   margin-top: 1rem;
 }
+.mt-10{
+  margin-top: 2.5rem;
+}
 .line-clamp-2{
   overflow: hidden;
   display: -webkit-box;
