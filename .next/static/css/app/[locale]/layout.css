@@ -565,8 +565,6 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, label {
 
   .container{
     max-width: 1400px;
-    padding-right: 6rem;
-    padding-left: 6rem;
   }
 }
 .sr-only{
@@ -1598,8 +1596,17 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, label {
 /* Mobile container padding optimization */
 @media (max-width: 640px) {
   .container {
-    padding-left: 0.5rem;
+    padding-left: 0;
     padding-right: 2rem;
+  }
+}
+
+/* Large screen container padding */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1400px;
+    padding-right: 6rem;
+    padding-left: 6rem;
   }
 }
 .file\:border-0::file-selector-button{
