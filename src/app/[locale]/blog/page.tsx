@@ -2,11 +2,11 @@
 
 import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
-import BlogHeader from '@/components/blog/BlogHeader';
-import BlogGrid from '@/components/blog/BlogGrid';
-import BlogSidebar from '@/components/blog/BlogSidebar';
-import LoadingSpinner from '@/components/ui/LoadingSpinner';
-import type { BlogPageProps, Post, Category } from '@/types/blog';
+import BlogHeader from '../../../components/blog/BlogHeader';
+import BlogGrid from '../../../components/blog/BlogGrid';
+import BlogSidebar from '../../../components/blog/BlogSidebar';
+import LoadingSpinner from '../../../components/ui/LoadingSpinner';
+import type { BlogPageProps, Post, Category } from '../../../types/blog';
 
 // Mock data for demonstration
 const mockCategories: Category[] = [
