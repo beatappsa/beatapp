@@ -380,47 +380,76 @@ const ArabicLandingPage = () => {
                 {/* Embedded Form */}
                 <div className="w-full relative z-10">
                   <style jsx global>{`
+                    /* Iframe container overrides */
                     #inline-4SdywNF9Ialxauvu2v5t {
                       margin: 0 !important;
                       padding: 0 !important;
+                      box-sizing: border-box !important;
                     }
                     
                     /* Override form content padding/margins */
                     iframe[data-form-id="4SdywNF9Ialxauvu2v5t"] {
                       margin: 0 !important;
                       padding: 0 !important;
-                    }
-                    
-                    /* Override any internal form styling */
-                    iframe[data-form-id="4SdywNF9Ialxauvu2v5t"] * {
                       box-sizing: border-box !important;
                     }
                     
-                    /* Target the form container inside iframe */
-                     .form-container,
-                     .form-wrapper,
-                     .leadconnector-form,
-                     [class*="form"],
-                     [class*="container"] {
-                       margin: 0 !important;
-                       padding: 0 !important;
-                     }
-                     
-                     /* Override specific form builder styles */
-                     #_builder-form .fields-container {
-                       padding: 0 !important;
-                       margin: 0 !important;
-                     }
-                     
-                     .hl-app .ghl-form-wrap {
-                       margin: 0 !important;
-                       padding: 0 !important;
-                     }
-                     
-                     .hl-app .hl_form-builder--main {
-                       margin: 0 !important;
-                       padding: 0 !important;
-                     }
+                    /* Aggressive form builder overrides */
+                    #_builder-form,
+                    #_builder-form *,
+                    #_builder-form .fields-container,
+                    #_builder-form .fields-container *,
+                    .hl-app,
+                    .hl-app *,
+                    .hl-app .ghl-form-wrap,
+                    .hl-app .ghl-form-wrap *,
+                    .hl-app .hl_form-builder--main,
+                    .hl-app .hl_form-builder--main *,
+                    .ghl-form,
+                    .ghl-form *,
+                    .leadconnector-form,
+                    .leadconnector-form *,
+                    .form-container,
+                    .form-container *,
+                    .form-wrapper,
+                    .form-wrapper *,
+                    [class*="form"],
+                    [class*="form"] *,
+                    [class*="container"],
+                    [class*="container"] *,
+                    [class*="field"],
+                    [class*="field"] *,
+                    [class*="input"],
+                    [class*="input"] *,
+                    [class*="button"],
+                    [class*="button"] *,
+                    [id*="form"],
+                    [id*="form"] *,
+                    [id*="field"],
+                    [id*="field"] *,
+                    [id*="builder"],
+                    [id*="builder"] * {
+                      margin: 0 !important;
+                      padding: 0 !important;
+                      box-sizing: border-box !important;
+                    }
+                    
+                    /* Target iframe body and html */
+                    iframe[data-form-id="4SdywNF9Ialxauvu2v5t"] html,
+                    iframe[data-form-id="4SdywNF9Ialxauvu2v5t"] body,
+                    iframe[data-form-id="4SdywNF9Ialxauvu2v5t"] html *,
+                    iframe[data-form-id="4SdywNF9Ialxauvu2v5t"] body * {
+                      margin: 0 !important;
+                      padding: 0 !important;
+                      box-sizing: border-box !important;
+                    }
+                    
+                    /* Universal reset for all elements inside iframe */
+                    iframe[data-form-id="4SdywNF9Ialxauvu2v5t"] * {
+                      margin: 0 !important;
+                      padding: 0 !important;
+                      box-sizing: border-box !important;
+                    }
                   `}</style>
                   <div className="bg-gray-50 rounded-2xl overflow-hidden p-0 m-0">
                     <iframe 
