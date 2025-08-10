@@ -4,9 +4,6 @@ const withNextIntl = require('next-intl/plugin')(
 );
 
 const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
   images: {
     domains: ['localhost', 'your-wordpress-domain.com'],
     remotePatterns: [
@@ -21,7 +18,7 @@ const nextConfig = {
     ],
   },
   env: {
-    WORDPRESS_API_URL: process.env.WORDPRESS_API_URL,
+    WORDPRESS_API_URL: process.env.WORDPRESS_API_URL || 'https://your-wordpress-site.com/graphql',
   },
 };
 
