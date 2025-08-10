@@ -21,13 +21,13 @@ const ArabicLandingPage = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Hero Content */}
             <div className="text-center lg:text-right">
-              <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-relaxed font-sans">
+              <h1 className="text-2xl xs:text-3xl sm:text-4xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight sm:leading-relaxed font-sans">
                 نظام ذكي ينقل عملك
                 <br />
                 من الفوضى إلى الأتمتة
               </h1>
               
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed font-sans">
+              <p className="text-base xs:text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed font-sans">
                 حل متكامل لإدارة العملاء والأتمتة بدون تعقيد.
                 <br />
                 مصمم خصيصًا لأصحاب المشاريع في السعودية.
@@ -85,14 +85,14 @@ const ArabicLandingPage = () => {
                     </svg>
                   </div>
                   
-                  <h2 className="text-4xl font-bold text-gray-900 mb-6 font-sans leading-tight">
+                  <h2 className="text-xl xs:text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 sm:mb-6 font-sans leading-tight">
                     دعنا نساعدك بخطة
                     <br />
                     <span className="bg-gradient-to-r from-[#5546FB] to-blue-500 bg-clip-text text-transparent">
                       أتمتة تناسبك
                     </span>
                   </h2>
-                  <p className="text-lg text-gray-600 font-sans leading-relaxed">
+                  <p className="text-sm xs:text-base sm:text-lg text-gray-600 font-sans leading-relaxed">
                     املأ بياناتك وسيتواصل معك فريقنا خلال 24 ساعة.
                   </p>
                 </div>
@@ -297,11 +297,11 @@ const ArabicLandingPage = () => {
                   <path fillRule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4 font-sans">
-                نظام Funnels
-                <br />
-                مؤتمت
-              </h3>
+              <h3 className="text-lg xs:text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4 font-sans">
+                 نظام Funnels
+                 <br />
+                 مؤتمت
+               </h3>
               <p className="text-gray-600 leading-relaxed font-sans">
                 حوّل الزوار إلى عملاء
                 <br />
@@ -318,7 +318,7 @@ const ArabicLandingPage = () => {
                    <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z" />
                  </svg>
                </div>
-               <h3 className="text-2xl font-bold text-gray-900 mb-4 font-sans">
+               <h3 className="text-lg xs:text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4 font-sans">
                  تقارير ذكية فورية
                </h3>
                <p className="text-gray-600 leading-relaxed font-sans">
@@ -332,7 +332,7 @@ const ArabicLandingPage = () => {
 
              {/* 6th Feature - CTA without box styling */}
               <div className="flex flex-col justify-center items-end text-right p-8">
-                <h3 className="text-3xl font-bold text-gray-900 mb-4 font-sans">
+                <h3 className="text-xl xs:text-2xl sm:text-3xl font-bold text-gray-900 mb-3 sm:mb-4 font-sans">
                   <span className="text-[#5546FB]">BeatApp…</span>
                   <br />
                   كل ما تحتاجه لإدارة
@@ -355,12 +355,12 @@ const ArabicLandingPage = () => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4 font-sans">
+            <h2 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 font-sans">
               لماذا يختار عملاؤنا
               <br />
               <span className="text-[#5546FB]">BeatApp؟</span>
             </h2>
-            <p className="text-xl text-gray-600 font-sans">
+            <p className="text-base xs:text-lg sm:text-xl text-gray-600 font-sans">
               ميزات تجعل <span className="text-[#5546FB]">BeatApp</span> الخيار الأول لأصحاب الأعمال
             </p>
           </div>
@@ -378,10 +378,10 @@ const ArabicLandingPage = () => {
                     <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2 font-sans">
+                <h3 className="text-base xs:text-lg sm:text-xl font-bold text-gray-900 mb-2 font-sans">
                   <span className="text-[#5546FB]">CRM</span> سهل وبالعربية
                 </h3>
-                <p className="text-gray-600 leading-relaxed font-sans text-sm">
+                <p className="text-gray-600 leading-relaxed font-sans text-xs xs:text-sm">
                   نظام <span className="text-[#5546FB]">CRM</span> سهل وبالعربية
                   <br />
                   لتبسيط عملك وزيادة إنتاجية
@@ -571,12 +571,12 @@ const ArabicLandingPage = () => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4 font-sans">
+            <h2 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 font-sans">
               نخدم قطاعات متنوعة
               <br />
               في السوق السعودي
             </h2>
-            <p className="text-xl text-gray-600 font-sans">
+            <p className="text-base xs:text-lg sm:text-xl text-gray-600 font-sans">
               حلولنا تناسب مختلف المجالات… لأن كل مشروع يحتاج للأتمتة.
             </p>
           </div>
@@ -589,7 +589,7 @@ const ArabicLandingPage = () => {
                   <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3 font-sans">
+              <h3 className="text-base xs:text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 font-sans">
                 المدارس والمراكز
                 <br />
                 التعليمية
@@ -603,7 +603,7 @@ const ArabicLandingPage = () => {
                   <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3 font-sans">
+              <h3 className="text-base xs:text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 font-sans">
                 البراند الشخصي
                 <br />
                 والمسوقون المستقلون
@@ -617,7 +617,7 @@ const ArabicLandingPage = () => {
                   <path d="M10 2L3 7v11a2 2 0 002 2h10a2 2 0 002-2V7l-7-5zM10 12a2 2 0 100-4 2 2 0 000 4z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3 font-sans">
+              <h3 className="text-base xs:text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 font-sans">
                 العيادات والمراكز
                 <br />
                 الصحية
@@ -631,7 +631,7 @@ const ArabicLandingPage = () => {
                   <path d="M10 2L3 7v11a2 2 0 002 2h10a2 2 0 002-2V7l-7-5zM8 11a1 1 0 112 0v2a1 1 0 11-2 0v-2zM8 7a1 1 0 112 0v1a1 1 0 11-2 0V7z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3 font-sans">
+              <h3 className="text-base xs:text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 font-sans">
                 المحامون ومكاتب
                 <br />
                 الخدمات
@@ -645,7 +645,7 @@ const ArabicLandingPage = () => {
                   <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3 font-sans">
+              <h3 className="text-base xs:text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3 font-sans">
                 مقدمو الكورسات
                 <br />
                 والاستشارات
@@ -659,7 +659,7 @@ const ArabicLandingPage = () => {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4 font-sans">
+            <h2 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 font-sans">
               شهادات من عملائنا
             </h2>
           </div>
@@ -737,7 +737,7 @@ const ArabicLandingPage = () => {
       {/* CTA Section */}
       <section className="py-20 bg-[#5546FB]">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-white mb-6 font-sans">
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl font-bold text-white mb-4 sm:mb-6 font-sans">
             BeatApp…
             <br />
             كل ما تحتاجه لإدارة
