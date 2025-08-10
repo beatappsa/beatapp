@@ -19,6 +19,7 @@ const nextConfig = {
   },
   env: {
     WORDPRESS_API_URL: process.env.WORDPRESS_API_URL || 'https://your-wordpress-site.com/graphql',
+    _next_intl_trailing_slash: 'false',
   },
 };
 
