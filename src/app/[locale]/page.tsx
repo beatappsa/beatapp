@@ -1,9 +1,9 @@
-import { redirect } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { FeaturedPosts } from '@/components/sections/FeaturedPosts';
 import { RecentPosts } from '@/components/sections/RecentPosts';
 import { NewsletterSection } from '@/components/sections/NewsletterSection';
+import ArabicLandingPage from '@/components/pages/ArabicLandingPage';
 
 interface HomePageProps {
   params: {
@@ -12,9 +12,9 @@ interface HomePageProps {
 }
 
 export default function HomePage({ params }: HomePageProps) {
-  // Redirect Arabic users to the Arabic landing page
+  // Render Arabic landing page for Arabic locale
   if (params.locale === 'ar') {
-    redirect('/ar/arabic-landing');
+    return <ArabicLandingPage />;
   }
 
   return (
