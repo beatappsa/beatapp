@@ -131,9 +131,18 @@ export async function POST(request: NextRequest) {
       console.error('GoHighLevel API Error:', ghlData);
       
       // Handle specific GHL errors
-      if (ghlResponse.status === 422 && ghlData.message?.includes('already exists')) {
+      if ((ghlResponse.status === 422 && ghlData.message?.includes('already exists')) ||
+          (ghlResponse.status === 400 && ghlData.message?.includes('duplicated contacts'))) {
         // Contact already exists, try to update instead
-        return await updateExistingContact(contactData, ghlApiKey, ghlLocationId, body);
+        console.log('Duplicate contact detected, attempting update...');
+        const existingContactId = ghlData.meta?.contactId;
+        console.log('Existing contact ID:', existingContactId);
+        if (existingContactId) {
+          console.log('Calling updateExistingContact with ID:', existingContactId);
+          return await updateExistingContact(contactData, ghlApiKey, ghlLocationId, body, existingContactId);
+        } else {
+          console.log('No contact ID found in meta field');
+        }
       }
       
       return NextResponse.json(
@@ -177,54 +186,42 @@ async function updateExistingContact(
   contactData: GoHighLevelContact,
   apiKey: string,
   locationId: string,
-  originalData: ContactData
+  originalData: ContactData,
+  contactId: string
 ) {
   try {
-    // First, search for the existing contact
-    const searchResponse = await fetch(
-      `https://services.leadconnectorhq.com/contacts/search/duplicate?locationId=${locationId}&email=${contactData.email}`,
+    // Update the existing contact using the provided contact ID
+    const updateResponse = await fetch(
+      `https://services.leadconnectorhq.com/contacts/${contactId}`,
       {
+        method: 'PUT',
         headers: {
           'Authorization': `Bearer ${apiKey}`,
+          'Content-Type': 'application/json',
           'Version': '2021-07-28'
-        }
+        },
+        body: JSON.stringify(contactData)
       }
     );
     
-    const searchData = await searchResponse.json();
-    
-    if (searchData.contact?.id) {
-      // Update the existing contact
-      const updateResponse = await fetch(
-        `https://services.leadconnectorhq.com/contacts/${searchData.contact.id}`,
-        {
-          method: 'PUT',
-          headers: {
-            'Authorization': `Bearer ${apiKey}`,
-            'Content-Type': 'application/json',
-            'Version': '2021-07-28'
-          },
-          body: JSON.stringify(contactData)
-        }
-      );
+    if (updateResponse.ok) {
+      // Create a follow-up note for the updated contact
+      await createFollowUpNote(contactId, originalData, apiKey);
       
-      if (updateResponse.ok) {
-        // Create a follow-up note for the updated contact
-        await createFollowUpNote(searchData.contact.id, originalData, apiKey);
-        
-        return NextResponse.json({
-          success: true,
-          message: 'Contact updated successfully',
-          contactId: searchData.contact.id,
-          updated: true
-        });
-      }
+      return NextResponse.json({
+        success: true,
+        message: 'Contact updated successfully',
+        contactId: contactId,
+        updated: true
+      });
+    } else {
+      const updateError = await updateResponse.json();
+      console.error('Failed to update contact:', updateError);
+      return NextResponse.json(
+        { error: 'Contact exists but could not be updated', details: updateError.message },
+        { status: 409 }
+      );
     }
-    
-    return NextResponse.json(
-      { error: 'Contact exists but could not be updated' },
-      { status: 409 }
-    );
     
   } catch (error) {
     console.error('Error updating existing contact:', error);
